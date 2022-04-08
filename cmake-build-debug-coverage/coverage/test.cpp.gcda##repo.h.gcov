@@ -1,0 +1,202 @@
+        -:    0:Source:C:/Projects/fac/OOP/Lab5_Contract_de_studii/repo.h
+        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\test.cpp.gcno
+        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\test.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by jdt on 2022-03-31.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef LAB5_CONTRACT_DE_STUDII_REPO_H
+        -:    6:#define LAB5_CONTRACT_DE_STUDII_REPO_H
+        -:    7:
+        -:    8:#include <vector>
+        -:    9:#include "Vector.h"
+        -:   10:
+        -:   11:template<typename T>
+        -:   12:class Repo{
+        -:   13:private:
+        -:   14:  Vector<T> contents;
+        -:   15:public:
+        -:   16:  size_t next_free_id;
+        -:   17:
+        -:   18:  Repo();
+        -:   19:
+        -:   20:  /**
+        -:   21:   * Get the element at a given index
+        -:   22:   * @param index
+        -:   23:   * @return
+        -:   24:   */
+function _ZNK4RepoI6CourseE2atEy called 4 returned 100% blocks executed 100%
+        4:   25:  const T& at(size_t index) const{
+        4:   26:    return contents.at(index);
+        4:   26-block  0
+call    0 returned 4
+        -:   27:  }
+        -:   28:
+        -:   29:  /**
+        -:   30:   * Get the current size of the internal vector
+        -:   31:   * @return
+        -:   32:   */
+function _ZNK4RepoI6CourseE8get_sizeEv called 0 returned 0% blocks executed 0%
+    #####:   33:  [[nodiscard]] size_t get_size() const{
+    #####:   34:    return contents.size();
+    %%%%%:   34-block  0
+call    0 never executed
+        -:   35:  }
+        -:   36:
+        -:   37:  /**
+        -:   38:   * Add an element to the Repository
+        -:   39:   * @param element
+        -:   40:   */
+function _ZN4RepoI6CourseE3addERKS0_ called 0 returned 0% blocks executed 0%
+    #####:   41:  void add(const T& element){
+    #####:   42:    this->contents.push_back(element);
+    %%%%%:   42-block  0
+call    0 never executed
+    #####:   43:    next_free_id++;
+    #####:   44:  }
+        -:   45:
+        -:   46:  /**
+        -:   47:   * Get an iterator to the beginning of the Repository
+        -:   48:   * @return
+        -:   49:   */
+function _ZNK4RepoI6CourseE5beginEv called 0 returned 0% blocks executed 0%
+    #####:   50:  typename Vector<T>::const_iterator begin() const{
+    #####:   51:    return contents.cbegin();
+    %%%%%:   51-block  0
+call    0 never executed
+        -:   52:  }
+        -:   53:
+        -:   54:    /**
+        -:   55:     * Get an iterator to one past the end of the Repository
+        -:   56:     * @return
+        -:   57:     */
+function _ZNK4RepoI6CourseE3endEv called 0 returned 0% blocks executed 0%
+    #####:   58:  typename Vector<T>::const_iterator end() const{
+    #####:   59:    return contents.cend();
+    %%%%%:   59-block  0
+call    0 never executed
+        -:   60:  }
+        -:   61:
+        -:   62:  //Find an element by its ID
+function _ZN4RepoI6CourseE10find_by_idEy called 0 returned 0% blocks executed 0%
+    #####:   63:  T& find_by_id(size_t id){
+    #####:   64:    auto res = std::find_if(begin(), end(),
+    %%%%%:   64-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   64-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   64-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+function _ZZN4RepoI6CourseE10find_by_idEyENKUlRKS0_E_clES3_ called 0 returned 0% blocks executed 0%
+    #####:   65:                            [id] (const T& first)
+    #####:   66:                            {return first.get_id() == id;});
+    %%%%%:   66-block  0
+call    0 never executed
+    #####:   67:    if(res == end())
+    %%%%%:   67-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   67-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   68:      throw std::out_of_range("Error: ID not found");
+    %%%%%:   68-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   68-block  1
+call    4 never executed
+    $$$$$:   68-block  2
+call    5 never executed
+    #####:   69:    return *res;
+    %%%%%:   69-block  0
+call    0 never executed
+    %%%%%:   69-block  1
+        -:   70:  }
+        -:   71:
+        -:   72:  /**
+        -:   73:   * Remove the element with a given ID
+        -:   74:   * @param id
+        -:   75:   */
+function _ZN4RepoI6CourseE12remove_by_idEy called 0 returned 0% blocks executed 0%
+    #####:   76:  void remove_by_id(size_t id){
+    #####:   77:    auto res = std::find_if(begin(), end(),
+    %%%%%:   77-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   77-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   77-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+function _ZZN4RepoI6CourseE12remove_by_idEyENKUlRKS0_E_clES3_ called 0 returned 0% blocks executed 0%
+    #####:   78:                            [id] (const T& first)
+    #####:   79:                            {return first.get_id() == id;});
+    %%%%%:   79-block  0
+call    0 never executed
+    #####:   80:    if(res == end())
+    %%%%%:   80-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   80-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   81:      throw std::out_of_range("Error: ID not found");
+    %%%%%:   81-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   81-block  1
+call    4 never executed
+    $$$$$:   81-block  2
+call    5 never executed
+    #####:   82:    contents.erase(res);
+    %%%%%:   82-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   83:  }
+    %%%%%:   83-block  0
+        -:   84:
+        -:   85:  /**
+        -:   86:   * Remove the element at a certain index.
+        -:   87:   * @param index
+        -:   88:   */
+        -:   89:  void remove_at(size_t index){
+        -:   90:    auto it = begin() + index;
+        -:   91:    contents.erase(it);
+        -:   92:  }
+        -:   93:
+        -:   94:  /**
+        -:   95:   * Get the internal vector.
+        -:   96:   * @return
+        -:   97:   */
+function _ZN4RepoI6CourseE9getVectorEv called 0 returned 0% blocks executed 0%
+    #####:   98:  Vector<Course>& getVector(){
+    #####:   99:    return contents;
+    %%%%%:   99-block  0
+        -:  100:  }
+        -:  101:};
+function _ZN4RepoI6CourseEC1Ev called 2 returned 100% blocks executed 100%
+        2:  102:template <typename T> Repo<T>::Repo() : next_free_id(0){}
+        2:  102-block  0
+call    0 returned 2
+        -:  103:
+        -:  104:#endif // LAB5_CONTRACT_DE_STUDII_REPO_H

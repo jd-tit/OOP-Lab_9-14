@@ -1,0 +1,88 @@
+        -:    0:Source:C:/Projects/fac/OOP/Lab5_Contract_de_studii/domain.h
+        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\user_interface.cpp.gcno
+        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\user_interface.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by jdt on 3/26/2022.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef LAB5_CONTRACT_DE_STUDII_DOMAIN_H
+        -:    6:#define LAB5_CONTRACT_DE_STUDII_DOMAIN_H
+        -:    7:
+        -:    8:#include <string>
+        -:    9:#include <utility>
+        -:   10:#include <iostream>
+        -:   11:
+        -:   12:class Course{
+        -:   13:private:
+        -:   14:    std::string name, type, teacher;
+        -:   15:    unsigned int hours_per_week;
+        -:   16:    size_t id;
+        -:   17:public:
+        -:   18:  Course(std::string name, std::string type,
+        -:   19:         std::string teacher,
+        -:   20:         unsigned int hours_per_week, size_t id) :
+        -:   21:        name(std::move(name)),
+        -:   22:        type(std::move(type)),
+        -:   23:        teacher(std::move(teacher)),
+        -:   24:        hours_per_week(hours_per_week),
+        -:   25:        id(id){}
+        -:   26:
+        -:   27://  Course(const Course& org) = default;
+        -:   28:
+        -:   29:    Course(const Course& org) : name(org.name), type(org.type), teacher(org.teacher), hours_per_week(org.hours_per_week),
+        -:   30:                              id(org.id){
+        -:   31:      std::cout << "copy" << std::endl;
+        -:   32:  }
+        -:   33:
+        -:   34:  [[nodiscard]] size_t get_id() const;
+        -:   35:
+        -:   36:  [[nodiscard]] const std::string& get_name() const {
+        -:   37:    return name;
+        -:   38:  }
+        -:   39:
+        -:   40:  [[nodiscard]] unsigned getHPW() const{
+        -:   41:    return hours_per_week;
+        -:   42:  }
+        -:   43:
+        -:   44:  [[nodiscard]] const std::string& get_teacher() const{
+        -:   45:    return teacher;
+        -:   46:  }
+        -:   47:
+        -:   48:  [[nodiscard]] const std::string& get_type() const{
+        -:   49:    return type;
+        -:   50:  }
+        -:   51:
+        -:   52:  void set_name(std::string name){
+        -:   53:    this->name = std::move(name);
+        -:   54:  }
+        -:   55:
+        -:   56:  void set_type(std::string type){
+        -:   57:    this->type = std::move(type);
+        -:   58:  }
+        -:   59:
+        -:   60:  void set_teacher(std::string teacher){
+        -:   61:    this->teacher = std::move(teacher);
+        -:   62:  }
+        -:   63:
+        -:   64:  void set_hpw(unsigned int hpw){
+        -:   65:    this->hours_per_week = hpw;
+        -:   66:  }
+        -:   67:
+        -:   68:  Course(): hours_per_week(0), id(0){}
+function _ZN6CourseD1Ev called 0 returned 0% blocks executed 0%
+    #####:   69:  ~Course() = default;
+    %%%%%:   69-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:   70:
+        -:   71:  /**
+        -:   72:   * Convert the Course to a string format.
+        -:   73:   * @return The stringified course.
+        -:   74:   */
+        -:   75:  [[nodiscard]] std::string to_str() const;
+        -:   76:
+        -:   77:};
+        -:   78:
+        -:   79:#endif //LAB5_CONTRACT_DE_STUDII_DOMAIN_H

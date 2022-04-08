@@ -1,0 +1,917 @@
+        -:    0:Source:C:/Projects/fac/OOP/Lab5_Contract_de_studii/user_interface.cpp
+        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\user_interface.cpp.gcno
+        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\user_interface.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by jdt on 3/27/2022.
+        -:    3://
+        -:    4:
+        -:    5:#include "user_interface.h"
+        -:    6:#include "validate.h"
+        -:    7:
+        -:    8:#include <unordered_map>
+        -:    9:#include <functional>
+        -:   10:
+function _ZN13UserInterface12command_loopEv called 0 returned 0% blocks executed 0%
+    #####:   11:[[noreturn]] void UserInterface::command_loop() {
+    #####:   12:    std::string cmd;
+    %%%%%:   12-block  0
+call    0 never executed
+    #####:   13:    std::unordered_map<std::string, std::function<void()>> valid_commands;
+call    0 never executed
+        -:   14:
+        -:   15:    while(true){
+    #####:   16:        print_help_menu();
+    %%%%%:   16-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   17:        read_w_message(cmd, "-->");
+    %%%%%:   17-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   18:
+        -:   19:
+    #####:   20:        if(cmd == "add"){
+    %%%%%:   20-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   21:          addCourse();
+    %%%%%:   21-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   22:        } else if ( cmd == "exit") {
+    %%%%%:   22-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   23:          exit_gracefully();
+    %%%%%:   23-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   24:        } else if (cmd == "list") {
+    %%%%%:   24-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   25:          listAll();
+    %%%%%:   25-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   26:        } else if(cmd == "rm") {
+    %%%%%:   26-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   27:          deleteCourse();
+    %%%%%:   27-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   28:        } else if(cmd == "mod") {
+    %%%%%:   28-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   29:          modifyCourse();
+    %%%%%:   29-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   30:        } else if(cmd == "find name") {
+    %%%%%:   30-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   31:          findCourseByName();
+    %%%%%:   31-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   32:        } else if(cmd == "filter hpw") {
+    %%%%%:   32-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   33:          filterByHPW();
+    %%%%%:   33-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   34:        } else if(cmd == "filter teacher"){
+    %%%%%:   34-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   35:          filterByTeacher();
+    %%%%%:   35-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   36:        } else if(cmd == "sorted by"){
+    %%%%%:   36-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   37:          getSortedBy();
+    %%%%%:   37-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   38:        } else {
+    #####:   39:          print_error("Invalid command.");
+    %%%%%:   39-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   40:        }
+        -:   41:    }
+    =====:   42:}
+    $$$$$:   42-block  0
+call    0 never executed
+    $$$$$:   42-block  1
+call    1 never executed
+        -:   43:
+        -:   44:
+function _ZN13UserInterface15print_help_menuEv called 0 returned 0% blocks executed 0%
+    #####:   45:void UserInterface::print_help_menu() {
+        -:   46:    std::cout <<    "'exit': Exit the program.\n" <<
+        -:   47:                    "'add':  Add a course.\n" <<
+        -:   48:                    "'rm':   Remove a course.\n" <<
+        -:   49:                    "'list': List all courses.\n" <<
+        -:   50:                    "'mod':  Modify a course.\n" <<
+        -:   51:                    "'filter hpw': Filter courses by how many hours per week they take.\n" <<
+        -:   52:                    "'filter teacher': Filter courses by teacher.\n"
+        -:   53:                    "'find name': Find a course by its name.\n" <<
+    #####:   54:                    "'sorted by': Get the list of courses, sorted by a given criterion." <<
+    %%%%%:   54-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+call    6 never executed
+call    7 never executed
+    #####:   55:                    std::endl;
+call    0 never executed
+    #####:   56:}
+        -:   57:
+        -:   58:
+function _ZN13UserInterface9addCourseEv called 0 returned 0% blocks executed 0%
+    #####:   59:void UserInterface::addCourse() {
+    #####:   60:  std::string name, teacher, type, hours_string;
+    %%%%%:   60-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####:   61:  std::cout << "Add a course" << std::endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   61-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   62:  read_w_message(name, "Course name: ");
+    %%%%%:   62-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   63:  read_w_message(teacher, "Teacher's name: ");
+    %%%%%:   63-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   64:  read_w_message(type, "Course type: ");
+    %%%%%:   64-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   65:  read_w_message(hours_string, "How many hours per week will this course take: ");
+    %%%%%:   65-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   66:
+        -:   67:  try{
+    #####:   68:    UserInterface::ctrl.add_course(name, teacher, type, hours_string);
+    %%%%%:   68-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   69:  }
+    =====:   70:  catch(std::out_of_range& e){
+    $$$$$:   70-block  0
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:   70-block  1
+call    3 never executed
+    =====:   71:    print_error(e.what());
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    =====:   72:    return;
+    $$$$$:   72-block  0
+    =====:   73:  }
+    $$$$$:   73-block  0
+call    0 never executed
+    $$$$$:   73-block  1
+call    1 never executed
+    =====:   74:  catch (std::invalid_argument& e){
+    $$$$$:   74-block  0
+call    0 never executed
+    =====:   75:    print_error(e.what());
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    =====:   76:    return;
+    $$$$$:   76-block  0
+    =====:   77:  }
+    $$$$$:   77-block  0
+call    0 never executed
+    $$$$$:   77-block  1
+call    1 never executed
+        -:   78:
+    #####:   79:  std::cout << "Course added successfully!\n";
+    %%%%%:   79-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   80:}
+    %%%%%:   80-block  0
+    %%%%%:   80-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   80-block  2
+    %%%%%:   80-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   80-block  4
+    %%%%%:   80-block  5
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   80-block  6
+    %%%%%:   80-block  7
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    $$$$$:   80-block  8
+call   12 never executed
+    $$$$$:   80-block  9
+call   13 never executed
+    $$$$$:   80-block 10
+call   14 never executed
+    $$$$$:   80-block 11
+call   15 never executed
+        -:   81:
+function _ZN13UserInterface12deleteCourseEv called 0 returned 0% blocks executed 0%
+    #####:   82:void UserInterface::deleteCourse() {
+    #####:   83:  std::string id_buff;
+    %%%%%:   83-block  0
+call    0 never executed
+    #####:   84:  read_w_message(id_buff, "ID of course to delete:");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   85:
+        -:   86:  try {
+    #####:   87:    ctrl.remove_course(id_buff);
+    %%%%%:   87-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   88:  }
+    =====:   89:  catch(std::out_of_range& e){
+    $$$$$:   89-block  0
+branch  0 never executed
+branch  1 never executed
+    $$$$$:   89-block  1
+call    2 never executed
+    =====:   90:    print_error(e.what());
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    =====:   91:    return;
+    $$$$$:   91-block  0
+    =====:   92:  }
+    $$$$$:   92-block  0
+call    0 never executed
+    $$$$$:   92-block  1
+call    1 never executed
+    #####:   93:  std::cout << "Course removed successfully!\n";
+    %%%%%:   93-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   94:}
+    %%%%%:   94-block  0
+    %%%%%:   94-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:   94-block  2
+call    3 never executed
+        -:   95:
+function _ZN13UserInterface12modifyCourseEv called 0 returned 0% blocks executed 0%
+    #####:   96:void UserInterface::modifyCourse() {
+    #####:   97:  std::string id_buff;
+    %%%%%:   97-block  0
+call    0 never executed
+    #####:   98:  read_w_message(id_buff, "ID of course to modify:");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   99:
+    #####:  100:  std::string name, teacher, type, hours_string;
+    %%%%%:  100-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####:  101:  std::cout << "Add a course" << std::endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  101-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:  102:  read_w_message(name, "Course name: ");
+    %%%%%:  102-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  103:  read_w_message(teacher, "Teacher's name: ");
+    %%%%%:  103-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  104:  read_w_message(type, "Course type: ");
+    %%%%%:  104-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  105:  read_w_message(hours_string, "How many hours per week will this course take: ");
+    %%%%%:  105-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  106:
+        -:  107:  try{
+    #####:  108:    UserInterface::ctrl.modify_course(id_buff, name, teacher, type, hours_string);
+    %%%%%:  108-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  109:  }
+    =====:  110:  catch(std::out_of_range& e){
+    $$$$$:  110-block  0
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:  110-block  1
+call    3 never executed
+    =====:  111:    print_error(e.what());
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    =====:  112:    return;
+    $$$$$:  112-block  0
+    =====:  113:  }
+    $$$$$:  113-block  0
+call    0 never executed
+    $$$$$:  113-block  1
+call    1 never executed
+    =====:  114:  catch (std::invalid_argument& e){
+    $$$$$:  114-block  0
+call    0 never executed
+    =====:  115:    print_error(e.what());
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    =====:  116:    return;
+    $$$$$:  116-block  0
+    =====:  117:  }
+    $$$$$:  117-block  0
+call    0 never executed
+    $$$$$:  117-block  1
+call    1 never executed
+    #####:  118:}
+    %%%%%:  118-block  0
+    %%%%%:  118-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  118-block  2
+    %%%%%:  118-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  118-block  4
+    %%%%%:  118-block  5
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  118-block  6
+    %%%%%:  118-block  7
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  118-block  8
+    %%%%%:  118-block  9
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    $$$$$:  118-block 10
+call   15 never executed
+    $$$$$:  118-block 11
+call   16 never executed
+    $$$$$:  118-block 12
+call   17 never executed
+    $$$$$:  118-block 13
+call   18 never executed
+    $$$$$:  118-block 14
+call   19 never executed
+        -:  119:
+        -:  120:template <typename T>
+function _ZN13UserInterface14read_w_messageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRT_PKc called 0 returned 0% blocks executed 0%
+    #####:  121:void UserInterface::read_w_message(T &elem, const char message[]) {
+    #####:  122:  std::cout << message;
+    %%%%%:  122-block  0
+call    0 never executed
+    #####:  123:  std::getline(std::cin, elem);
+call    0 never executed
+    #####:  124:  std::cout << std::endl;
+call    0 never executed
+    #####:  125:}
+        -:  126:
+        -:  127:
+function _ZN13UserInterface15exit_gracefullyEv called 0 returned 0% blocks executed 0%
+    #####:  128:void UserInterface::exit_gracefully() {
+    #####:  129:  std::cout << "Goodbye!";
+    %%%%%:  129-block  0
+call    0 never executed
+    #####:  130:  exit(EXIT_SUCCESS);
+        -:  131:}
+        -:  132:
+        -:  133:
+function _ZN13UserInterface11print_errorEPKc called 0 returned 0% blocks executed 0%
+    #####:  134:void UserInterface::print_error(const char *message) {
+    #####:  135:  std::cout << message << std::endl;
+    %%%%%:  135-block  0
+call    0 never executed
+call    1 never executed
+    #####:  136:}
+        -:  137:
+        -:  138:
+function _ZN13UserInterface7listAllEv called 0 returned 0% blocks executed 0%
+    #####:  139:void UserInterface::listAll() {
+    #####:  140:  const auto& result = ctrl.getAll();
+    %%%%%:  140-block  0
+call    0 never executed
+    #####:  141:  if(result.get_size() == 0){
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  142:    print_error("There are no courses.");
+    %%%%%:  142-block  0
+call    0 never executed
+    #####:  143:    return;
+        -:  144:  }
+        -:  145:
+    #####:  146:  for(const auto& e : result){
+    %%%%%:  146-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  146-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  146-block  2
+    %%%%%:  146-block  3
+call    6 never executed
+    %%%%%:  146-block  4
+call    7 never executed
+branch  8 never executed
+branch  9 never executed
+    #####:  147:    std::cout << e.to_str() << std::endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  147-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  147-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  147-block  2
+call    9 never executed
+call   10 never executed
+    $$$$$:  147-block  3
+call   11 never executed
+    $$$$$:  147-block  4
+        -:  148:  }
+        -:  149:}
+        -:  150:
+function _ZN13UserInterface16findCourseByNameEv called 0 returned 0% blocks executed 0%
+    #####:  151:void UserInterface::findCourseByName() {
+    #####:  152:  std::string target_name;
+    %%%%%:  152-block  0
+call    0 never executed
+    #####:  153:  read_w_message(target_name, "Name of course to search for: ");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  154:
+        -:  155:  try {
+    #####:  156:    const auto &result = ctrl.getCourse(target_name);
+    %%%%%:  156-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  157:    std::cout << result.to_str() << std::endl;
+    %%%%%:  157-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  157-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  157-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  157-block  3
+call    9 never executed
+    $$$$$:  157-block  4
+call   10 never executed
+    $$$$$:  157-block  5
+        -:  158:  }
+    =====:  159:  catch(std::out_of_range& e){
+    $$$$$:  159-block  0
+branch  0 never executed
+branch  1 never executed
+    $$$$$:  159-block  1
+call    2 never executed
+    =====:  160:    print_error(e.what());
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    =====:  161:    return;
+    $$$$$:  161-block  0
+    =====:  162:  }
+    $$$$$:  162-block  0
+call    0 never executed
+    $$$$$:  162-block  1
+call    1 never executed
+    #####:  163:}
+    %%%%%:  163-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:  163-block  1
+call    3 never executed
+        -:  164:
+function _ZN13UserInterface11filterByHPWEv called 0 returned 0% blocks executed 0%
+    #####:  165:void UserInterface::filterByHPW() {
+    #####:  166:  std::string start_buff, stop_buff;
+    %%%%%:  166-block  0
+call    0 never executed
+call    1 never executed
+    #####:  167:  std::cout << "Get courses with a number of hours per week in the interval [start, stop]\n";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  168:  read_w_message(start_buff, "Start: ");
+    %%%%%:  168-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  169:  read_w_message(stop_buff, "Stop: ");
+    %%%%%:  169-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  170:
+        -:  171:  try {
+    #####:  172:    auto result_vector = ctrl.getCoursesMatchingHPW(start_buff, stop_buff);
+    %%%%%:  172-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  173:    std::cout << "The matching courses are: " << std::endl;
+    %%%%%:  173-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  173-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+        -:  174:
+    #####:  175:    if(result_vector->size() == 0){
+    %%%%%:  175-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  176:      std::cout << "No courses have an amount of hours per week in the given range.\n";
+    %%%%%:  176-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  177:      return;
+    %%%%%:  177-block  0
+        -:  178:    }
+        -:  179:
+    #####:  180:    for(auto& course : *result_vector){
+    %%%%%:  180-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  180-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  180-block  2
+    %%%%%:  180-block  3
+call    7 never executed
+    %%%%%:  180-block  4
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    #####:  181:      std::cout << course.to_str() << std::endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  181-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  181-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  181-block  2
+call    9 never executed
+call   10 never executed
+    $$$$$:  181-block  3
+call   11 never executed
+    $$$$$:  181-block  4
+        -:  182:    }
+    #####:  183:  }
+    %%%%%:  183-block  0
+    %%%%%:  183-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:  183-block  2
+call    3 never executed
+    =====:  184:  catch(std::invalid_argument& e){
+    $$$$$:  184-block  0
+branch  0 never executed
+branch  1 never executed
+    $$$$$:  184-block  1
+call    2 never executed
+    =====:  185:    print_error(e.what());
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    =====:  186:  }
+    $$$$$:  186-block  0
+call    0 never executed
+    $$$$$:  186-block  1
+call    1 never executed
+    #####:  187:}
+    %%%%%:  187-block  0
+    %%%%%:  187-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  187-block  2
+    %%%%%:  187-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  187-block  4
+call    6 never executed
+    $$$$$:  187-block  5
+call    7 never executed
+function _ZN13UserInterface15filterByTeacherEv called 0 returned 0% blocks executed 0%
+    #####:  188:void UserInterface::filterByTeacher() {
+    #####:  189:  std::string teacher_name;
+    %%%%%:  189-block  0
+call    0 never executed
+    #####:  190:  read_w_message(teacher_name, "Teacher name: ");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  191:
+        -:  192:
+    #####:  193:  auto result_vector = ctrl.getCoursesMatchingTeacher(teacher_name);
+    %%%%%:  193-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  194:
+    #####:  195:  if(result_vector->size() == 0){
+    %%%%%:  195-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  196:    std::cout << "No courses have this teacher.\n";
+    %%%%%:  196-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  197:    return;
+    %%%%%:  197-block  0
+        -:  198:  }
+        -:  199:
+    #####:  200:  for(auto& course : *result_vector){
+    %%%%%:  200-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  200-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  200-block  2
+    %%%%%:  200-block  3
+call    7 never executed
+    %%%%%:  200-block  4
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    #####:  201:    std::cout << course.to_str() << std::endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  201-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  201-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  201-block  2
+call    9 never executed
+call   10 never executed
+    $$$$$:  201-block  3
+call   11 never executed
+    $$$$$:  201-block  4
+        -:  202:  }
+        -:  203:
+    #####:  204:}
+    %%%%%:  204-block  0
+    %%%%%:  204-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  204-block  2
+    %%%%%:  204-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  204-block  4
+call    6 never executed
+    $$$$$:  204-block  5
+call    7 never executed
+function _ZN13UserInterface11getSortedByEv called 0 returned 0% blocks executed 0%
+    #####:  205:void UserInterface::getSortedBy() {
+    #####:  206:  std::string criterion;
+    %%%%%:  206-block  0
+call    0 never executed
+    #####:  207:  std::cout << "The valid criteria are: teacher, name, hours. Secondary sort is by type." << std::endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  207-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:  208:  read_w_message(criterion, "Which criterion to search by? ");
+    %%%%%:  208-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  209:
+        -:  210:  try {
+    #####:  211:    auto result_vector = ctrl.getSortedBy(criterion);
+    %%%%%:  211-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  212:
+    #####:  213:    if(result_vector->size() == 0){
+    %%%%%:  213-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  214:      print_error("There are no courses yet.");
+    %%%%%:  214-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  215:    }
+        -:  216:
+    #####:  217:    std::cout << "The sorted courses are: " << std::endl;
+    %%%%%:  217-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  217-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:  218:    for(auto& course : *result_vector){
+    %%%%%:  218-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  218-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  218-block  2
+    %%%%%:  218-block  3
+call    7 never executed
+    %%%%%:  218-block  4
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    #####:  219:      std::cout << course.to_str() << std::endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  219-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  219-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  219-block  2
+call    9 never executed
+call   10 never executed
+    $$$$$:  219-block  3
+call   11 never executed
+    $$$$$:  219-block  4
+        -:  220:    }
+    #####:  221:  }
+    %%%%%:  221-block  0
+call    0 never executed
+    $$$$$:  221-block  1
+call    1 never executed
+    =====:  222:  catch(std::invalid_argument& e){
+    $$$$$:  222-block  0
+branch  0 never executed
+branch  1 never executed
+    $$$$$:  222-block  1
+call    2 never executed
+    =====:  223:    print_error(e.what());
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    =====:  224:  }
+    $$$$$:  224-block  0
+call    0 never executed
+    $$$$$:  224-block  1
+call    1 never executed
+        -:  225:
+    #####:  226:}
+    %%%%%:  226-block  0
+call    0 never executed
+    $$$$$:  226-block  1
+call    1 never executed

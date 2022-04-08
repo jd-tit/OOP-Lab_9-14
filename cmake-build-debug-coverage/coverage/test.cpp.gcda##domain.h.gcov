@@ -1,0 +1,147 @@
+        -:    0:Source:C:/Projects/fac/OOP/Lab5_Contract_de_studii/domain.h
+        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\test.cpp.gcno
+        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\test.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by jdt on 3/26/2022.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef LAB5_CONTRACT_DE_STUDII_DOMAIN_H
+        -:    6:#define LAB5_CONTRACT_DE_STUDII_DOMAIN_H
+        -:    7:
+        -:    8:#include <string>
+        -:    9:#include <utility>
+        -:   10:#include <iostream>
+        -:   11:
+        -:   12:class Course{
+        -:   13:private:
+        -:   14:    std::string name, type, teacher;
+        -:   15:    unsigned int hours_per_week;
+        -:   16:    size_t id;
+        -:   17:public:
+function _ZN6CourseC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_jy called 0 returned 0% blocks executed 0%
+    #####:   18:  Course(std::string name, std::string type,
+        -:   19:         std::string teacher,
+    #####:   20:         unsigned int hours_per_week, size_t id) :
+    #####:   21:        name(std::move(name)),
+    %%%%%:   21-block  0
+call    0 never executed
+call    1 never executed
+    #####:   22:        type(std::move(type)),
+call    0 never executed
+call    1 never executed
+    #####:   23:        teacher(std::move(teacher)),
+call    0 never executed
+call    1 never executed
+    #####:   24:        hours_per_week(hours_per_week),
+    #####:   25:        id(id){}
+        -:   26:
+        -:   27://  Course(const Course& org) = default;
+        -:   28:
+function _ZN6CourseC1ERKS_ called 0 returned 0% blocks executed 0%
+    #####:   29:    Course(const Course& org) : name(org.name), type(org.type), teacher(org.teacher), hours_per_week(org.hours_per_week),
+    %%%%%:   29-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   29-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    #####:   30:                              id(org.id){
+    #####:   31:      std::cout << "copy" << std::endl;
+    %%%%%:   31-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   31-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   32:  }
+    %%%%%:   32-block  0
+    $$$$$:   32-block  1
+call    0 never executed
+    $$$$$:   32-block  2
+call    1 never executed
+    $$$$$:   32-block  3
+call    2 never executed
+        -:   33:
+        -:   34:  [[nodiscard]] size_t get_id() const;
+        -:   35:
+function _ZNK6Course8get_nameB5cxx11Ev called 0 returned 0% blocks executed 0%
+    #####:   36:  [[nodiscard]] const std::string& get_name() const {
+    #####:   37:    return name;
+    %%%%%:   37-block  0
+        -:   38:  }
+        -:   39:
+function _ZNK6Course6getHPWEv called 0 returned 0% blocks executed 0%
+    #####:   40:  [[nodiscard]] unsigned getHPW() const{
+    #####:   41:    return hours_per_week;
+    %%%%%:   41-block  0
+        -:   42:  }
+        -:   43:
+function _ZNK6Course11get_teacherB5cxx11Ev called 0 returned 0% blocks executed 0%
+    #####:   44:  [[nodiscard]] const std::string& get_teacher() const{
+    #####:   45:    return teacher;
+    %%%%%:   45-block  0
+        -:   46:  }
+        -:   47:
+function _ZNK6Course8get_typeB5cxx11Ev called 0 returned 0% blocks executed 0%
+    #####:   48:  [[nodiscard]] const std::string& get_type() const{
+    #####:   49:    return type;
+    %%%%%:   49-block  0
+        -:   50:  }
+        -:   51:
+function _ZN6Course8set_nameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   52:  void set_name(std::string name){
+    #####:   53:    this->name = std::move(name);
+    %%%%%:   53-block  0
+call    0 never executed
+call    1 never executed
+    #####:   54:  }
+        -:   55:
+function _ZN6Course8set_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   56:  void set_type(std::string type){
+    #####:   57:    this->type = std::move(type);
+    %%%%%:   57-block  0
+call    0 never executed
+call    1 never executed
+    #####:   58:  }
+        -:   59:
+function _ZN6Course11set_teacherENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   60:  void set_teacher(std::string teacher){
+    #####:   61:    this->teacher = std::move(teacher);
+    %%%%%:   61-block  0
+call    0 never executed
+call    1 never executed
+    #####:   62:  }
+        -:   63:
+function _ZN6Course7set_hpwEj called 0 returned 0% blocks executed 0%
+    #####:   64:  void set_hpw(unsigned int hpw){
+    #####:   65:    this->hours_per_week = hpw;
+    #####:   66:  }
+        -:   67:
+function _ZN6CourseC1Ev called 0 returned 0% blocks executed 0%
+    #####:   68:  Course(): hours_per_week(0), id(0){}
+    %%%%%:   68-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+function _ZN6CourseD1Ev called 0 returned 0% blocks executed 0%
+    #####:   69:  ~Course() = default;
+    %%%%%:   69-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:   70:
+        -:   71:  /**
+        -:   72:   * Convert the Course to a string format.
+        -:   73:   * @return The stringified course.
+        -:   74:   */
+        -:   75:  [[nodiscard]] std::string to_str() const;
+        -:   76:
+        -:   77:};
+        -:   78:
+        -:   79:#endif //LAB5_CONTRACT_DE_STUDII_DOMAIN_H

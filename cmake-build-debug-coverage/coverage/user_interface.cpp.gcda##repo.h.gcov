@@ -1,0 +1,117 @@
+        -:    0:Source:C:/Projects/fac/OOP/Lab5_Contract_de_studii/repo.h
+        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\user_interface.cpp.gcno
+        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\user_interface.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by jdt on 2022-03-31.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef LAB5_CONTRACT_DE_STUDII_REPO_H
+        -:    6:#define LAB5_CONTRACT_DE_STUDII_REPO_H
+        -:    7:
+        -:    8:#include <vector>
+        -:    9:#include "Vector.h"
+        -:   10:
+        -:   11:template<typename T>
+        -:   12:class Repo{
+        -:   13:private:
+        -:   14:  Vector<T> contents;
+        -:   15:public:
+        -:   16:  size_t next_free_id;
+        -:   17:
+        -:   18:  Repo();
+        -:   19:
+        -:   20:  /**
+        -:   21:   * Get the element at a given index
+        -:   22:   * @param index
+        -:   23:   * @return
+        -:   24:   */
+        -:   25:  const T& at(size_t index) const{
+        -:   26:    return contents.at(index);
+        -:   27:  }
+        -:   28:
+        -:   29:  /**
+        -:   30:   * Get the current size of the internal vector
+        -:   31:   * @return
+        -:   32:   */
+function _ZNK4RepoI6CourseE8get_sizeEv called 8 returned 100% blocks executed 100%
+        8:   33:  [[nodiscard]] size_t get_size() const{
+        8:   34:    return contents.size();
+        8:   34-block  0
+call    0 returned 8
+        -:   35:  }
+        -:   36:
+        -:   37:  /**
+        -:   38:   * Add an element to the Repository
+        -:   39:   * @param element
+        -:   40:   */
+        -:   41:  void add(const T& element){
+        -:   42:    this->contents.push_back(element);
+        -:   43:    next_free_id++;
+        -:   44:  }
+        -:   45:
+        -:   46:  /**
+        -:   47:   * Get an iterator to the beginning of the Repository
+        -:   48:   * @return
+        -:   49:   */
+function _ZNK4RepoI6CourseE5beginEv called 0 returned 0% blocks executed 0%
+    #####:   50:  typename Vector<T>::const_iterator begin() const{
+    #####:   51:    return contents.cbegin();
+    %%%%%:   51-block  0
+call    0 never executed
+        -:   52:  }
+        -:   53:
+        -:   54:    /**
+        -:   55:     * Get an iterator to one past the end of the Repository
+        -:   56:     * @return
+        -:   57:     */
+function _ZNK4RepoI6CourseE3endEv called 0 returned 0% blocks executed 0%
+    #####:   58:  typename Vector<T>::const_iterator end() const{
+    #####:   59:    return contents.cend();
+    %%%%%:   59-block  0
+call    0 never executed
+        -:   60:  }
+        -:   61:
+        -:   62:  //Find an element by its ID
+        -:   63:  T& find_by_id(size_t id){
+        -:   64:    auto res = std::find_if(begin(), end(),
+        -:   65:                            [id] (const T& first)
+        -:   66:                            {return first.get_id() == id;});
+        -:   67:    if(res == end())
+        -:   68:      throw std::out_of_range("Error: ID not found");
+        -:   69:    return *res;
+        -:   70:  }
+        -:   71:
+        -:   72:  /**
+        -:   73:   * Remove the element with a given ID
+        -:   74:   * @param id
+        -:   75:   */
+        -:   76:  void remove_by_id(size_t id){
+        -:   77:    auto res = std::find_if(begin(), end(),
+        -:   78:                            [id] (const T& first)
+        -:   79:                            {return first.get_id() == id;});
+        -:   80:    if(res == end())
+        -:   81:      throw std::out_of_range("Error: ID not found");
+        -:   82:    contents.erase(res);
+        -:   83:  }
+        -:   84:
+        -:   85:  /**
+        -:   86:   * Remove the element at a certain index.
+        -:   87:   * @param index
+        -:   88:   */
+        -:   89:  void remove_at(size_t index){
+        -:   90:    auto it = begin() + index;
+        -:   91:    contents.erase(it);
+        -:   92:  }
+        -:   93:
+        -:   94:  /**
+        -:   95:   * Get the internal vector.
+        -:   96:   * @return
+        -:   97:   */
+        -:   98:  Vector<Course>& getVector(){
+        -:   99:    return contents;
+        -:  100:  }
+        -:  101:};
+        -:  102:template <typename T> Repo<T>::Repo() : next_free_id(0){}
+        -:  103:
+        -:  104:#endif // LAB5_CONTRACT_DE_STUDII_REPO_H

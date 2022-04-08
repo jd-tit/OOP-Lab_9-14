@@ -1,0 +1,16 @@
+        -:    0:Source:C:/Projects/fac/OOP/Lab5_Contract_de_studii/main.cpp
+        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\main.cpp.gcno
+        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "user_interface.h"
+        -:    2:#include "test.h"
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        1:    5:  run_all_tests();
+        1:    5-block  0
+call    0 returned 1
+        -:    6://  UserInterface ui;
+        -:    7://  ui.command_loop();
+        -:    8://    return 0;
+        1:    9:}

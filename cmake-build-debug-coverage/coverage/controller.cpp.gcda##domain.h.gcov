@@ -1,0 +1,147 @@
+        -:    0:Source:C:/Projects/fac/OOP/Lab5_Contract_de_studii/domain.h
+        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\controller.cpp.gcno
+        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\controller.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by jdt on 3/26/2022.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef LAB5_CONTRACT_DE_STUDII_DOMAIN_H
+        -:    6:#define LAB5_CONTRACT_DE_STUDII_DOMAIN_H
+        -:    7:
+        -:    8:#include <string>
+        -:    9:#include <utility>
+        -:   10:#include <iostream>
+        -:   11:
+        -:   12:class Course{
+        -:   13:private:
+        -:   14:    std::string name, type, teacher;
+        -:   15:    unsigned int hours_per_week;
+        -:   16:    size_t id;
+        -:   17:public:
+function _ZN6CourseC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_jy called 12 returned 100% blocks executed 100%
+       12:   18:  Course(std::string name, std::string type,
+        -:   19:         std::string teacher,
+       12:   20:         unsigned int hours_per_week, size_t id) :
+       12:   21:        name(std::move(name)),
+       12:   21-block  0
+call    0 returned 12
+call    1 returned 12
+       12:   22:        type(std::move(type)),
+call    0 returned 12
+call    1 returned 12
+       12:   23:        teacher(std::move(teacher)),
+call    0 returned 12
+call    1 returned 12
+       12:   24:        hours_per_week(hours_per_week),
+       12:   25:        id(id){}
+        -:   26:
+        -:   27://  Course(const Course& org) = default;
+        -:   28:
+function _ZN6CourseC1ERKS_ called 136 returned 100% blocks executed 58%
+      136:   29:    Course(const Course& org) : name(org.name), type(org.type), teacher(org.teacher), hours_per_week(org.hours_per_week),
+      136:   29-block  0
+call    0 returned 136
+call    1 returned 136
+branch  2 taken 136 (fallthrough)
+branch  3 taken 0 (throw)
+      136:   29-block  1
+call    4 returned 136
+branch  5 taken 136 (fallthrough)
+branch  6 taken 0 (throw)
+      136:   30:                              id(org.id){
+      136:   31:      std::cout << "copy" << std::endl;
+      136:   31-block  0
+call    0 returned 136
+branch  1 taken 136 (fallthrough)
+branch  2 taken 0 (throw)
+      136:   31-block  1
+call    3 returned 136
+branch  4 taken 136 (fallthrough)
+branch  5 taken 0 (throw)
+      136:   32:  }
+      136:   32-block  0
+    $$$$$:   32-block  1
+call    0 never executed
+    $$$$$:   32-block  2
+call    1 never executed
+    $$$$$:   32-block  3
+call    2 never executed
+        -:   33:
+        -:   34:  [[nodiscard]] size_t get_id() const;
+        -:   35:
+function _ZNK6Course8get_nameB5cxx11Ev called 28 returned 100% blocks executed 100%
+       28:   36:  [[nodiscard]] const std::string& get_name() const {
+       28:   37:    return name;
+       28:   37-block  0
+        -:   38:  }
+        -:   39:
+function _ZNK6Course6getHPWEv called 22 returned 100% blocks executed 100%
+       22:   40:  [[nodiscard]] unsigned getHPW() const{
+       22:   41:    return hours_per_week;
+       22:   41-block  0
+        -:   42:  }
+        -:   43:
+function _ZNK6Course11get_teacherB5cxx11Ev called 19 returned 100% blocks executed 100%
+       19:   44:  [[nodiscard]] const std::string& get_teacher() const{
+       19:   45:    return teacher;
+       19:   45-block  0
+        -:   46:  }
+        -:   47:
+function _ZNK6Course8get_typeB5cxx11Ev called 5 returned 100% blocks executed 100%
+        5:   48:  [[nodiscard]] const std::string& get_type() const{
+        5:   49:    return type;
+        5:   49-block  0
+        -:   50:  }
+        -:   51:
+function _ZN6Course8set_nameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 2 returned 100% blocks executed 100%
+        2:   52:  void set_name(std::string name){
+        2:   53:    this->name = std::move(name);
+        2:   53-block  0
+call    0 returned 2
+call    1 returned 2
+        2:   54:  }
+        -:   55:
+function _ZN6Course8set_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 2 returned 100% blocks executed 100%
+        2:   56:  void set_type(std::string type){
+        2:   57:    this->type = std::move(type);
+        2:   57-block  0
+call    0 returned 2
+call    1 returned 2
+        2:   58:  }
+        -:   59:
+function _ZN6Course11set_teacherENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 2 returned 100% blocks executed 100%
+        2:   60:  void set_teacher(std::string teacher){
+        2:   61:    this->teacher = std::move(teacher);
+        2:   61-block  0
+call    0 returned 2
+call    1 returned 2
+        2:   62:  }
+        -:   63:
+function _ZN6Course7set_hpwEj called 2 returned 100% blocks executed 100%
+        2:   64:  void set_hpw(unsigned int hpw){
+        2:   65:    this->hours_per_week = hpw;
+        2:   66:  }
+        -:   67:
+function _ZN6CourseC1Ev called 540 returned 100% blocks executed 100%
+      540:   68:  Course(): hours_per_week(0), id(0){}
+      540:   68-block  0
+call    0 returned 540
+call    1 returned 540
+call    2 returned 540
+function _ZN6CourseD1Ev called 688 returned 100% blocks executed 100%
+      688:   69:  ~Course() = default;
+      688:   69-block  0
+call    0 returned 688
+call    1 returned 688
+call    2 returned 688
+        -:   70:
+        -:   71:  /**
+        -:   72:   * Convert the Course to a string format.
+        -:   73:   * @return The stringified course.
+        -:   74:   */
+        -:   75:  [[nodiscard]] std::string to_str() const;
+        -:   76:
+        -:   77:};
+        -:   78:
+        -:   79:#endif //LAB5_CONTRACT_DE_STUDII_DOMAIN_H
