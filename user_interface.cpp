@@ -14,7 +14,6 @@
     std::unordered_map<std::string, std::function<void()>> valid_commands;
 
     while (true) {
-        std::cout << std::endl;
         print_help_menu();
         read_w_message(cmd, "-->");
 
@@ -47,8 +46,6 @@
             generateContract();
         } else if (cmd == "type report" || cmd == "tr") {
             typeReport();
-        } else if (cmd == "undo" || cmd == "u") {
-            undoLast();
         } else {
             print_error("Invalid command.");
         }

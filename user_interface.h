@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 
+#include <QtWidgets>
+#include <QListView>
 
 #include "controller.h"
 
@@ -124,6 +126,10 @@ public:
 
     /** Undo the last add, modify, or delete action. */
     void undoLast();
+};
+
+class MainWindow : public QMainWindow {
+  QListView* course_list;
 };
 
 #endif //LAB5_CONTRACT_DE_STUDII_USER_INTERFACE_H
