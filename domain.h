@@ -65,20 +65,20 @@ public:
     return type;
   }
 
-  void set_name(std::string name){
-    this->name = std::move(name);
+  void set_name(std::string new_name){
+    this->name = std::move(new_name);
   }
 
-  void set_type(std::string type){
-    this->type = std::move(type);
+  void set_type(std::string new_type){
+    this->type = std::move(new_type);
   }
 
-  void set_teacher(std::string teacher){
-    this->teacher = std::move(teacher);
+  void set_teacher(std::string new_teacher){
+    this->teacher = std::move(new_teacher);
   }
 
-  void set_hpw(unsigned int hpw){
-    this->hours_per_week = hpw;
+  void set_hpw(unsigned int new_hours_per_week){
+    this->hours_per_week = new_hours_per_week;
   }
 
   Course(): hours_per_week(0), id(0){}
@@ -89,6 +89,12 @@ public:
    * @return The stringified course.
    */
   [[nodiscard]] std::string to_str() const;
+
+  /**
+   * Convert the Course to CSV format.
+   * @return The Course, in Comma Separated Values format.
+   */
+  [[nodiscard]] std::string to_csv() const;
 
 };
 

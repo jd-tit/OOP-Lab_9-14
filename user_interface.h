@@ -85,6 +85,36 @@ public:
      *  Start dialogue to show courses sorted by a given criterion.
      */
     void getSortedBy();
+
+    /**
+     * Start dialogue to add a course to the current contract
+     */
+    void addCourseToContract();
+
+    /**
+     * User comand to clear the contract.
+     */
+    void clearContract();
+
+
+    /**
+     *  Start dialogue to export the current contract.
+     */
+    void exportContract();
+
+
+    /**
+     * Start dialogue to generate a random contract
+     */
+    void generateContract();
+
+    /**
+     * Print a message saying how many courses there are in the contract.
+     */
+    void printContractCourseCount();
+
+
+    void typeReport();
 };
 
 #endif //LAB5_CONTRACT_DE_STUDII_USER_INTERFACE_H

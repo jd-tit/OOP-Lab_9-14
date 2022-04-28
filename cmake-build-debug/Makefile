@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii
+CMAKE_SOURCE_DIR = /mnt/c/Projects/fac/OOP/Lab8
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug
+CMAKE_BINARY_DIR = /mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/CMakeFiles /mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/CMakeFiles /mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,30 @@ Lab5_Contract_de_studii: cmake_check_build_system
 Lab5_Contract_de_studii/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lab5_Contract_de_studii.dir/build.make CMakeFiles/Lab5_Contract_de_studii.dir/build
 .PHONY : Lab5_Contract_de_studii/fast
+
+contract.o: contract.cpp.o
+.PHONY : contract.o
+
+# target to build an object file
+contract.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lab5_Contract_de_studii.dir/build.make CMakeFiles/Lab5_Contract_de_studii.dir/contract.cpp.o
+.PHONY : contract.cpp.o
+
+contract.i: contract.cpp.i
+.PHONY : contract.i
+
+# target to preprocess a source file
+contract.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lab5_Contract_de_studii.dir/build.make CMakeFiles/Lab5_Contract_de_studii.dir/contract.cpp.i
+.PHONY : contract.cpp.i
+
+contract.s: contract.cpp.s
+.PHONY : contract.s
+
+# target to generate assembly for a file
+contract.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lab5_Contract_de_studii.dir/build.make CMakeFiles/Lab5_Contract_de_studii.dir/contract.cpp.s
+.PHONY : contract.cpp.s
 
 controller.o: controller.cpp.o
 .PHONY : controller.o
@@ -282,6 +306,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Lab5_Contract_de_studii"
+	@echo "... contract.o"
+	@echo "... contract.i"
+	@echo "... contract.s"
 	@echo "... controller.o"
 	@echo "... controller.i"
 	@echo "... controller.s"

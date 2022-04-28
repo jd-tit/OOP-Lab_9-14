@@ -1,6 +1,6 @@
-        -:    0:Source:C:/Projects/fac/OOP/Lab5_Contract_de_studii/repo.h
-        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\user_interface.cpp.gcno
-        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\user_interface.cpp.gcda
+        -:    0:Source:/mnt/c/Projects/fac/OOP/Lab8/repo.h
+        -:    0:Graph:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/user_interface.cpp.gcno
+        -:    0:Data:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/user_interface.cpp.gcda
         -:    0:Runs:1
         -:    1://
         -:    2:// Created by jdt on 2022-03-31.
@@ -10,12 +10,12 @@
         -:    6:#define LAB5_CONTRACT_DE_STUDII_REPO_H
         -:    7:
         -:    8:#include <vector>
-        -:    9:#include "Vector.h"
+        -:    9:#include "domain.h"
         -:   10:
         -:   11:template<typename T>
         -:   12:class Repo{
-        -:   13:private:
-        -:   14:  Vector<T> contents;
+        -:   13:protected:
+        -:   14:    std::vector<T> contents;
         -:   15:public:
         -:   16:  size_t next_free_id;
         -:   17:
@@ -34,11 +34,11 @@
         -:   30:   * Get the current size of the internal vector
         -:   31:   * @return
         -:   32:   */
-function _ZNK4RepoI6CourseE8get_sizeEv called 8 returned 100% blocks executed 100%
-        8:   33:  [[nodiscard]] size_t get_size() const{
-        8:   34:    return contents.size();
-        8:   34-block  0
-call    0 returned 8
+function _ZNK4RepoI6CourseE8get_sizeEv called 0 returned 0% blocks executed 0%
+    #####:   33:  [[nodiscard]] size_t get_size() const{
+    #####:   34:    return contents.size();
+    %%%%%:   34-block  0
+call    0 never executed
         -:   35:  }
         -:   36:
         -:   37:  /**
@@ -54,64 +54,102 @@ call    0 returned 8
         -:   47:   * Get an iterator to the beginning of the Repository
         -:   48:   * @return
         -:   49:   */
-function _ZNK4RepoI6CourseE5beginEv called 0 returned 0% blocks executed 0%
-    #####:   50:  typename Vector<T>::const_iterator begin() const{
-    #####:   51:    return contents.cbegin();
-    %%%%%:   51-block  0
-call    0 never executed
+        -:   50:  typename std::vector<T>::iterator begin(){
+        -:   51:    return contents.begin();
         -:   52:  }
         -:   53:
         -:   54:    /**
-        -:   55:     * Get an iterator to one past the end of the Repository
+        -:   55:     * Get a const iterator to the beginning of the Repository
         -:   56:     * @return
         -:   57:     */
-function _ZNK4RepoI6CourseE3endEv called 0 returned 0% blocks executed 0%
-    #####:   58:  typename Vector<T>::const_iterator end() const{
-    #####:   59:    return contents.cend();
+function _ZNK4RepoI6CourseE5beginEv called 0 returned 0% blocks executed 0%
+    #####:   58:    typename std::vector<T>::const_iterator begin() const{
+    #####:   59:      return cbegin();
     %%%%%:   59-block  0
 call    0 never executed
-        -:   60:  }
+        -:   60:    }
         -:   61:
-        -:   62:  //Find an element by its ID
-        -:   63:  T& find_by_id(size_t id){
-        -:   64:    auto res = std::find_if(begin(), end(),
-        -:   65:                            [id] (const T& first)
-        -:   66:                            {return first.get_id() == id;});
-        -:   67:    if(res == end())
-        -:   68:      throw std::out_of_range("Error: ID not found");
-        -:   69:    return *res;
-        -:   70:  }
-        -:   71:
-        -:   72:  /**
-        -:   73:   * Remove the element with a given ID
-        -:   74:   * @param id
-        -:   75:   */
-        -:   76:  void remove_by_id(size_t id){
-        -:   77:    auto res = std::find_if(begin(), end(),
-        -:   78:                            [id] (const T& first)
-        -:   79:                            {return first.get_id() == id;});
-        -:   80:    if(res == end())
-        -:   81:      throw std::out_of_range("Error: ID not found");
-        -:   82:    contents.erase(res);
-        -:   83:  }
-        -:   84:
-        -:   85:  /**
-        -:   86:   * Remove the element at a certain index.
-        -:   87:   * @param index
-        -:   88:   */
-        -:   89:  void remove_at(size_t index){
-        -:   90:    auto it = begin() + index;
-        -:   91:    contents.erase(it);
-        -:   92:  }
+        -:   62:    /**
+        -:   63:     * Get a const iterator to the beginning of the Repository
+        -:   64:     * @return
+        -:   65:     */
+function _ZNK4RepoI6CourseE6cbeginEv called 0 returned 0% blocks executed 0%
+    #####:   66:    typename std::vector<T>::const_iterator cbegin() const{
+    #####:   67:      return contents.cbegin();
+    %%%%%:   67-block  0
+call    0 never executed
+        -:   68:    }
+        -:   69:
+        -:   70:    /**
+        -:   71:     * Get an iterator to one past the end of the Repository
+        -:   72:     * @return
+        -:   73:     */
+        -:   74:  typename std::vector<T>::iterator end(){
+        -:   75:    return contents.end();
+        -:   76:  }
+        -:   77:
+        -:   78:    /**
+        -:   79:       * Get an iterator to one past the end of the Repository
+        -:   80:       * @return
+        -:   81:       */
+function _ZNK4RepoI6CourseE3endEv called 0 returned 0% blocks executed 0%
+    #####:   82:    typename std::vector<T>::const_iterator end() const{
+    #####:   83:      return cend();
+    %%%%%:   83-block  0
+call    0 never executed
+        -:   84:    }
+        -:   85:
+        -:   86:    /**
+        -:   87:       * Get a const iterator to one past the end of the Repository
+        -:   88:       * @return
+        -:   89:       */
+function _ZNK4RepoI6CourseE4cendEv called 0 returned 0% blocks executed 0%
+    #####:   90:    typename std::vector<T>::const_iterator cend() const{
+    #####:   91:      return contents.cend();
+    %%%%%:   91-block  0
+call    0 never executed
+        -:   92:    }
         -:   93:
-        -:   94:  /**
-        -:   95:   * Get the internal vector.
-        -:   96:   * @return
-        -:   97:   */
-        -:   98:  Vector<Course>& getVector(){
-        -:   99:    return contents;
-        -:  100:  }
-        -:  101:};
-        -:  102:template <typename T> Repo<T>::Repo() : next_free_id(0){}
+        -:   94:  //Find an element by its ID
+        -:   95:  T& find_by_id(size_t id){
+        -:   96:    auto res = std::find_if(begin(), end(),
+        -:   97:                            [id] (const T& first)
+        -:   98:                            {return first.get_id() == id;});
+        -:   99:    if(res == end())
+        -:  100:      throw std::out_of_range("Error: ID not found");
+        -:  101:    return *res;
+        -:  102:  }
         -:  103:
-        -:  104:#endif // LAB5_CONTRACT_DE_STUDII_REPO_H
+        -:  104:  /**
+        -:  105:   * Remove the element with a given ID
+        -:  106:   * @param id
+        -:  107:   */
+        -:  108:  void remove_by_id(size_t id){
+        -:  109:    auto res = std::find_if(begin(), end(),
+        -:  110:                            [id] (const T& first)
+        -:  111:                            {return first.get_id() == id;});
+        -:  112:    if(res == end())
+        -:  113:      throw std::out_of_range("Error: ID not found");
+        -:  114:    contents.erase(res);
+        -:  115:  }
+        -:  116:
+        -:  117:  /**
+        -:  118:   * Remove the element at a certain index.
+        -:  119:   * @param index
+        -:  120:   */
+        -:  121:  void remove_at(size_t index){
+        -:  122:    auto it = begin() + index;
+        -:  123:    contents.erase(it);
+        -:  124:  }
+        -:  125:
+        -:  126:  /**
+        -:  127:   * Get the internal vector.
+        -:  128:   * @return
+        -:  129:   */
+        -:  130:  std::vector<Course>& getVector(){
+        -:  131:    return contents;
+        -:  132:  }
+        -:  133:};
+        -:  134:template <typename T> Repo<T>::Repo() : next_free_id(0){}
+        -:  135:
+        -:  136:#endif // LAB5_CONTRACT_DE_STUDII_REPO_H

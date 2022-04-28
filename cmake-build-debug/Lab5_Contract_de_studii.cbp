@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug"/>
+				<Option working_dir="/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Lab5_Contract_de_studii">
-				<Option output="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Lab5_Contract_de_studii" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug"/>
+				<Option output="/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Lab5_Contract_de_studii" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -33,15 +33,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lab5_Contract_de_studii"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lab5_Contract_de_studii"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Lab5_Contract_de_studii/fast">
-				<Option output="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Lab5_Contract_de_studii" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug"/>
+				<Option output="/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Lab5_Contract_de_studii" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -55,76 +55,82 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lab5_Contract_de_studii/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lab5_Contract_de_studii/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug"/>
+				<Option working_dir="/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug"/>
+				<Option working_dir="/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/Vector.h">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/Vector.h">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/controller.cpp">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/contract.cpp">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/controller.h">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/contract.h">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/domain.cpp">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/controller.cpp">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/domain.h">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/controller.h">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/exception.h">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/domain.cpp">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/main.cpp">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/domain.h">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/repo.h">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/exception.h">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/test.cpp">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/main.cpp">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/test.h">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/repo.h">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/user_interface.cpp">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/test.cpp">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/user_interface.h">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/test.h">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/validate.cpp">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/user_interface.cpp">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/validate.h">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/user_interface.h">
 			<Option target="Lab5_Contract_de_studii"/>
 		</Unit>
-		<Unit filename="/mnt/c/Projects/fac/OOP/Lab5_Contract_de_studii/CMakeLists.txt">
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/validate.cpp">
+			<Option target="Lab5_Contract_de_studii"/>
+		</Unit>
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/validate.h">
+			<Option target="Lab5_Contract_de_studii"/>
+		</Unit>
+		<Unit filename="/mnt/c/Projects/fac/OOP/Lab8/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

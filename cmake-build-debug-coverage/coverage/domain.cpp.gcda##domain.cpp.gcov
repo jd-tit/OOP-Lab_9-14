@@ -1,6 +1,6 @@
-        -:    0:Source:C:/Projects/fac/OOP/Lab5_Contract_de_studii/domain.cpp
-        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\domain.cpp.gcno
-        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\domain.cpp.gcda
+        -:    0:Source:/mnt/c/Projects/fac/OOP/Lab8/domain.cpp
+        -:    0:Graph:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/domain.cpp.gcno
+        -:    0:Data:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/domain.cpp.gcda
         -:    0:Runs:1
         -:    1://
         -:    2:// Created by jdt on 3/26/2022.
@@ -8,67 +8,123 @@
         -:    4:
         -:    5:#include <sstream>
         -:    6:#include "domain.h"
-function _ZNK6Course6to_strB5cxx11Ev called 625 returned 100% blocks executed 89%
-      625:    7:std::string Course::to_str() const{
-      625:    8:  std::stringstream ss;
-      625:    8-block  0
-call    0 returned 625
-branch  1 taken 625 (fallthrough)
+function _ZNK6Course6to_strB5cxx11Ev called 81 returned 100% blocks executed 89%
+       81:    7:std::string Course::to_str() const{
+      162:    8:  std::stringstream ss;
+       81:    8-block  0
+call    0 returned 81
+branch  1 taken 81 (fallthrough)
 branch  2 taken 0 (throw)
-      625:    9:  ss << "ID: " << id << "; Name: " << name << "; Type: " << type << "; Teacher: " << teacher << "; Hours per week: " << hours_per_week;
-      625:    9-block  0
-call    0 returned 625
-branch  1 taken 625 (fallthrough)
+       81:    8-block  1
+call    3 returned 81
+    $$$$$:    8-block  2
+call    4 never executed
+       81:    9:  ss << "ID: " << id << "; Name: " << name << "; Type: " << type << "; Teacher: " << teacher << "; Hours per week: " << hours_per_week;
+       81:    9-block  0
+call    0 returned 81
+branch  1 taken 81 (fallthrough)
 branch  2 taken 0 (throw)
-      625:    9-block  1
-call    3 returned 625
-branch  4 taken 625 (fallthrough)
+       81:    9-block  1
+call    3 returned 81
+branch  4 taken 81 (fallthrough)
 branch  5 taken 0 (throw)
-      625:    9-block  2
-call    6 returned 625
-branch  7 taken 625 (fallthrough)
+       81:    9-block  2
+call    6 returned 81
+branch  7 taken 81 (fallthrough)
 branch  8 taken 0 (throw)
-      625:    9-block  3
-call    9 returned 625
-branch 10 taken 625 (fallthrough)
+       81:    9-block  3
+call    9 returned 81
+branch 10 taken 81 (fallthrough)
 branch 11 taken 0 (throw)
-      625:    9-block  4
-call   12 returned 625
-branch 13 taken 625 (fallthrough)
+       81:    9-block  4
+call   12 returned 81
+branch 13 taken 81 (fallthrough)
 branch 14 taken 0 (throw)
-      625:    9-block  5
-call   15 returned 625
-branch 16 taken 625 (fallthrough)
+       81:    9-block  5
+call   15 returned 81
+branch 16 taken 81 (fallthrough)
 branch 17 taken 0 (throw)
-      625:    9-block  6
-call   18 returned 625
-branch 19 taken 625 (fallthrough)
+       81:    9-block  6
+call   18 returned 81
+branch 19 taken 81 (fallthrough)
 branch 20 taken 0 (throw)
-      625:    9-block  7
-call   21 returned 625
-branch 22 taken 625 (fallthrough)
+       81:    9-block  7
+call   21 returned 81
+branch 22 taken 81 (fallthrough)
 branch 23 taken 0 (throw)
-      625:    9-block  8
-call   24 returned 625
-branch 25 taken 625 (fallthrough)
+       81:    9-block  8
+call   24 returned 81
+branch 25 taken 81 (fallthrough)
 branch 26 taken 0 (throw)
-      625:    9-block  9
-call   27 returned 625
-branch 28 taken 625 (fallthrough)
+       81:    9-block  9
+call   27 returned 81
+branch 28 taken 81 (fallthrough)
 branch 29 taken 0 (throw)
-     1250:   10:  return ss.str();
-      625:   10-block  0
-call    0 returned 625
-branch  1 taken 625 (fallthrough)
+      162:   10:  return ss.str();
+       81:   10-block  0
+call    0 returned 81
+branch  1 taken 81 (fallthrough)
 branch  2 taken 0 (throw)
-      625:   10-block  1
-      625:   11:}
-      625:   11-block  0
-call    0 returned 625
-    $$$$$:   11-block  1
-call    1 never executed
-function _ZNK6Course6get_idEv called 14 returned 100% blocks executed 100%
-       14:   12:size_t Course::get_id() const{
-       14:   13:  return id;
-       14:   13-block  0
+       81:   10-block  1
+        -:   11:}
+function _ZNK6Course6get_idEv called 15 returned 100% blocks executed 100%
+       15:   12:size_t Course::get_id() const{
+       15:   13:  return id;
+       15:   13-block  0
         -:   14:}
+        -:   15:
+function _ZNK6Course6to_csvB5cxx11Ev called 3 returned 100% blocks executed 89%
+        3:   16:std::string Course::to_csv() const {
+        6:   17:    std::stringstream ss;
+        3:   17-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   17-block  1
+call    3 returned 3
+    $$$$$:   17-block  2
+call    4 never executed
+        3:   18:    ss<< id << "," << name << "," << type << "," << teacher << "," << hours_per_week;
+        3:   18-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   18-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   18-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:   18-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:   18-block  4
+call   12 returned 3
+branch 13 taken 3 (fallthrough)
+branch 14 taken 0 (throw)
+        3:   18-block  5
+call   15 returned 3
+branch 16 taken 3 (fallthrough)
+branch 17 taken 0 (throw)
+        3:   18-block  6
+call   18 returned 3
+branch 19 taken 3 (fallthrough)
+branch 20 taken 0 (throw)
+        3:   18-block  7
+call   21 returned 3
+branch 22 taken 3 (fallthrough)
+branch 23 taken 0 (throw)
+        3:   18-block  8
+call   24 returned 3
+branch 25 taken 3 (fallthrough)
+branch 26 taken 0 (throw)
+        6:   19:    return ss.str();
+        3:   19-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   19-block  1
+        -:   20:}

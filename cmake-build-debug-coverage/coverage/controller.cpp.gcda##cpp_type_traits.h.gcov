@@ -1,10 +1,10 @@
-        -:    0:Source:C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cpp_type_traits.h
-        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\controller.cpp.gcno
-        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\controller.cpp.gcda
+        -:    0:Source:/usr/include/c++/9/bits/cpp_type_traits.h
+        -:    0:Graph:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/controller.cpp.gcno
+        -:    0:Data:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/controller.cpp.gcda
         -:    0:Runs:1
         -:    1:// The  -*- C++ -*- type traits classes for internal use in libstdc++
         -:    2:
-        -:    3:// Copyright (C) 2000-2021 Free Software Foundation, Inc.
+        -:    3:// Copyright (C) 2000-2019 Free Software Foundation, Inc.
         -:    4://
         -:    5:// This file is part of the GNU ISO C++ Library.  This library is free
         -:    6:// software; you can redistribute it and/or modify it under the
@@ -166,7 +166,7 @@
         -:  162:      typedef __true_type __type;
         -:  163:    };
         -:  164:
-        -:  165:# ifdef __WCHAR_TYPE__
+        -:  165:# ifdef _GLIBCXX_USE_WCHAR_T
         -:  166:  template<>
         -:  167:    struct __is_integer<wchar_t>
         -:  168:    {
@@ -367,7 +367,7 @@
         -:  363:      typedef __true_type __type;
         -:  364:    };
         -:  365:
-        -:  366:#ifdef __WCHAR_TYPE__
+        -:  366:#ifdef _GLIBCXX_USE_WCHAR_T
         -:  367:  template<>
         -:  368:    struct __is_char<wchar_t>
         -:  369:    {
@@ -415,159 +415,27 @@
         -:  411:    };
         -:  412:#endif // C++17
         -:  413:
-        -:  414:#ifdef _GLIBCXX_USE_CHAR8_T
-        -:  415:  template<>
-        -:  416:    struct __is_byte<char8_t>
-        -:  417:    {
-        -:  418:      enum { __value = 1 };
-        -:  419:      typedef __true_type __type;
-        -:  420:    };
-        -:  421:#endif
-        -:  422:
-        -:  423:  template<typename> struct iterator_traits;
-        -:  424:
-        -:  425:  // A type that is safe for use with memcpy, memmove, memcmp etc.
-        -:  426:  template<typename _Tp>
-        -:  427:    struct __is_nonvolatile_trivially_copyable
-        -:  428:    {
-        -:  429:      enum { __value = __is_trivially_copyable(_Tp) };
-        -:  430:    };
-        -:  431:
-        -:  432:  // Cannot use memcpy/memmove/memcmp on volatile types even if they are
-        -:  433:  // trivially copyable, so ensure __memcpyable<volatile int*, volatile int*>
-        -:  434:  // and similar will be false.
-        -:  435:  template<typename _Tp>
-        -:  436:    struct __is_nonvolatile_trivially_copyable<volatile _Tp>
-        -:  437:    {
-        -:  438:      enum { __value = 0 };
-        -:  439:    };
-        -:  440:
-        -:  441:  // Whether two iterator types can be used with memcpy/memmove.
-        -:  442:  template<typename _OutputIter, typename _InputIter>
-        -:  443:    struct __memcpyable
-        -:  444:    {
-        -:  445:      enum { __value = 0 };
-        -:  446:    };
-        -:  447:
-        -:  448:  template<typename _Tp>
-        -:  449:    struct __memcpyable<_Tp*, _Tp*>
-        -:  450:    : __is_nonvolatile_trivially_copyable<_Tp>
-        -:  451:    { };
-        -:  452:
-        -:  453:  template<typename _Tp>
-        -:  454:    struct __memcpyable<_Tp*, const _Tp*>
-        -:  455:    : __is_nonvolatile_trivially_copyable<_Tp>
-        -:  456:    { };
-        -:  457:
-        -:  458:  // Whether two iterator types can be used with memcmp.
-        -:  459:  // This trait only says it's well-formed to use memcmp, not that it
-        -:  460:  // gives the right answer for a given algorithm. So for example, std::equal
-        -:  461:  // needs to add additional checks that the types are integers or pointers,
-        -:  462:  // because other trivially copyable types can overload operator==.
-        -:  463:  template<typename _Iter1, typename _Iter2>
-        -:  464:    struct __memcmpable
-        -:  465:    {
-        -:  466:      enum { __value = 0 };
-        -:  467:    };
-        -:  468:
-        -:  469:  // OK to use memcmp with pointers to trivially copyable types.
-        -:  470:  template<typename _Tp>
-        -:  471:    struct __memcmpable<_Tp*, _Tp*>
-        -:  472:    : __is_nonvolatile_trivially_copyable<_Tp>
-        -:  473:    { };
-        -:  474:
-        -:  475:  template<typename _Tp>
-        -:  476:    struct __memcmpable<const _Tp*, _Tp*>
-        -:  477:    : __is_nonvolatile_trivially_copyable<_Tp>
-        -:  478:    { };
-        -:  479:
-        -:  480:  template<typename _Tp>
-        -:  481:    struct __memcmpable<_Tp*, const _Tp*>
-        -:  482:    : __is_nonvolatile_trivially_copyable<_Tp>
-        -:  483:    { };
-        -:  484:
-        -:  485:  // Whether memcmp can be used to determine ordering for a type
-        -:  486:  // e.g. in std::lexicographical_compare or three-way comparisons.
-        -:  487:  // True for unsigned integer-like types where comparing each byte in turn
-        -:  488:  // as an unsigned char yields the right result. This is true for all
-        -:  489:  // unsigned integers on big endian targets, but only unsigned narrow
-        -:  490:  // character types (and std::byte) on little endian targets.
-        -:  491:  template<typename _Tp, bool _TreatAsBytes =
-        -:  492:#if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-        -:  493:	__is_integer<_Tp>::__value
-        -:  494:#else
-        -:  495:	__is_byte<_Tp>::__value
-        -:  496:#endif
-        -:  497:    >
-        -:  498:    struct __is_memcmp_ordered
-        -:  499:    {
-        -:  500:      static const bool __value = _Tp(-1) > _Tp(1); // is unsigned
-        -:  501:    };
-        -:  502:
-        -:  503:  template<typename _Tp>
-        -:  504:    struct __is_memcmp_ordered<_Tp, false>
-        -:  505:    {
-        -:  506:      static const bool __value = false;
-        -:  507:    };
-        -:  508:
-        -:  509:  // Whether two types can be compared using memcmp.
-        -:  510:  template<typename _Tp, typename _Up, bool = sizeof(_Tp) == sizeof(_Up)>
-        -:  511:    struct __is_memcmp_ordered_with
-        -:  512:    {
-        -:  513:      static const bool __value = __is_memcmp_ordered<_Tp>::__value
-        -:  514:	&& __is_memcmp_ordered<_Up>::__value;
-        -:  515:    };
-        -:  516:
-        -:  517:  template<typename _Tp, typename _Up>
-        -:  518:    struct __is_memcmp_ordered_with<_Tp, _Up, false>
-        -:  519:    {
-        -:  520:      static const bool __value = false;
-        -:  521:    };
-        -:  522:
-        -:  523:#if __cplusplus >= 201703L
-        -:  524:#if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-        -:  525:  // std::byte is not an integer, but it can be compared using memcmp.
-        -:  526:  template<>
-        -:  527:    struct __is_memcmp_ordered<std::byte, false>
-        -:  528:    { static constexpr bool __value = true; };
-        -:  529:#endif
-        -:  530:
-        -:  531:  // std::byte can only be compared to itself, not to other types.
-        -:  532:  template<>
-        -:  533:    struct __is_memcmp_ordered_with<std::byte, std::byte, true>
-        -:  534:    { static constexpr bool __value = true; };
-        -:  535:
-        -:  536:  template<typename _Tp, bool _SameSize>
-        -:  537:    struct __is_memcmp_ordered_with<_Tp, std::byte, _SameSize>
-        -:  538:    { static constexpr bool __value = false; };
-        -:  539:
-        -:  540:  template<typename _Up, bool _SameSize>
-        -:  541:    struct __is_memcmp_ordered_with<std::byte, _Up, _SameSize>
-        -:  542:    { static constexpr bool __value = false; };
-        -:  543:#endif
-        -:  544:
-        -:  545:  //
-        -:  546:  // Move iterator type
-        -:  547:  //
-        -:  548:  template<typename _Tp>
-        -:  549:    struct __is_move_iterator
-        -:  550:    {
-        -:  551:      enum { __value = 0 };
-        -:  552:      typedef __false_type __type;
-        -:  553:    };
-        -:  554:
-        -:  555:  // Fallback implementation of the function in bits/stl_iterator.h used to
-        -:  556:  // remove the move_iterator wrapper.
-        -:  557:  template<typename _Iterator>
-        -:  558:    _GLIBCXX20_CONSTEXPR
-        -:  559:    inline _Iterator
-function _ZSt12__miter_baseIPKcET_S2_ called 0 returned 0% blocks executed 0%
-    #####:  560:    __miter_base(_Iterator __it)
-    #####:  561:    { return __it; }
-    %%%%%:  561-block  0
-        -:  562:
-        -:  563:_GLIBCXX_END_NAMESPACE_VERSION
-        -:  564:} // namespace
-        -:  565:} // extern "C++"
-        -:  566:
-        -:  567:#endif //_CPP_TYPE_TRAITS_H
+        -:  414:  //
+        -:  415:  // Move iterator type
+        -:  416:  //
+        -:  417:  template<typename _Tp>
+        -:  418:    struct __is_move_iterator
+        -:  419:    {
+        -:  420:      enum { __value = 0 };
+        -:  421:      typedef __false_type __type;
+        -:  422:    };
+        -:  423:
+        -:  424:  // Fallback implementation of the function in bits/stl_iterator.h used to
+        -:  425:  // remove the move_iterator wrapper.
+        -:  426:  template<typename _Iterator>
+        -:  427:    inline _Iterator
+function _ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIP6CourseSt6vectorIS2_SaIS2_EEEEET_S8_ called 4 returned 100% blocks executed 100%
+        4:  428:    __miter_base(_Iterator __it)
+        4:  429:    { return __it; }
+        4:  429-block  0
+        -:  430:
+        -:  431:_GLIBCXX_END_NAMESPACE_VERSION
+        -:  432:} // namespace
+        -:  433:} // extern "C++"
+        -:  434:
+        -:  435:#endif //_CPP_TYPE_TRAITS_H

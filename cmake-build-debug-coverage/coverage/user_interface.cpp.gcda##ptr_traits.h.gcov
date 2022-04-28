@@ -1,10 +1,10 @@
-        -:    0:Source:C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ptr_traits.h
-        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\user_interface.cpp.gcno
-        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\user_interface.cpp.gcda
+        -:    0:Source:/usr/include/c++/9/bits/ptr_traits.h
+        -:    0:Graph:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/user_interface.cpp.gcno
+        -:    0:Data:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/user_interface.cpp.gcda
         -:    0:Runs:1
         -:    1:// Pointer Traits -*- C++ -*-
         -:    2:
-        -:    3:// Copyright (C) 2011-2021 Free Software Foundation, Inc.
+        -:    3:// Copyright (C) 2011-2019 Free Software Foundation, Inc.
         -:    4://
         -:    5:// This file is part of the GNU ISO C++ Library.  This library is free
         -:    6:// software; you can redistribute it and/or modify it under the
@@ -149,6 +149,13 @@
         -:  145:      static _GLIBCXX20_CONSTEXPR pointer
     #####:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
     #####:  147:      { return std::addressof(__r); }
+------------------
+_ZNSt14pointer_traitsIPNSt8__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmELb1EEEE10pointer_toERSB_:
+function _ZNSt14pointer_traitsIPNSt8__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmELb1EEEE10pointer_toERSB_ called 0 returned 0% blocks executed 0%
+    #####:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
+    #####:  147:      { return std::addressof(__r); }
+    %%%%%:  147-block  0
+call    0 never executed
 ------------------
 _ZNSt14pointer_traitsIPNSt8__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEEELb1EEEE10pointer_toERSE_:
 function _ZNSt14pointer_traitsIPNSt8__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEEELb1EEEE10pointer_toERSE_ called 0 returned 0% blocks executed 0%

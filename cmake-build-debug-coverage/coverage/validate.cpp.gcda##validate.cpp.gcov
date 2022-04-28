@@ -1,63 +1,63 @@
-        -:    0:Source:C:/Projects/fac/OOP/Lab5_Contract_de_studii/validate.cpp
-        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\validate.cpp.gcno
-        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\validate.cpp.gcda
+        -:    0:Source:/mnt/c/Projects/fac/OOP/Lab8/validate.cpp
+        -:    0:Graph:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/validate.cpp.gcno
+        -:    0:Data:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/validate.cpp.gcda
         -:    0:Runs:1
         -:    1://
         -:    2:// Created by jdt on 2022-03-31.
         -:    3://
         -:    4:
         -:    5:#include "validate.h"
-function _Z15is_valid_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 28 returned 100% blocks executed 100%
-       28:    6:bool is_valid_string(const std::string &name) {
-      202:    7:    for(auto c : name){
-       28:    7-block  0
-call    0 returned 28
-call    1 returned 28
-      175:    7-block  1
-call    2 returned 175
-      174:    7-block  2
-call    3 returned 174
-      202:    7-block  3
-call    4 returned 202
-branch  5 taken 175
-branch  6 taken 27 (fallthrough)
-      175:    8:      if(std::isalpha(c) ||  c == '\'' || c == ' '){
-branch  0 taken 10 (fallthrough)
-branch  1 taken 165
-       10:    8-block  0
-branch  2 taken 10 (fallthrough)
+function _Z15is_valid_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 43 returned 100% blocks executed 100%
+       43:    6:bool is_valid_string(const std::string &name) {
+      340:    7:    for(auto c : name){
+       43:    7-block  0
+call    0 returned 43
+call    1 returned 43
+      340:    7-block  1
+call    2 returned 340
+branch  3 taken 298 (fallthrough)
+branch  4 taken 42
+      298:    7-block  2
+call    5 returned 298
+      297:    7-block  3
+call    6 returned 297
+      298:    8:      if(std::isalpha(c) ||  c == '\'' || c == ' '){
+branch  0 taken 16 (fallthrough)
+branch  1 taken 282
+       16:    8-block  0
+branch  2 taken 16 (fallthrough)
 branch  3 taken 0
-       10:    8-block  1
-branch  4 taken 9 (fallthrough)
+       16:    8-block  1
+branch  4 taken 15 (fallthrough)
 branch  5 taken 1
-      174:    9:        continue;
-      174:    9-block  0
+      297:    9:        continue;
+      297:    9-block  0
         -:   10:      }
         1:   11:      return false;
         1:   11-block  0
         -:   12:    }
-       27:   13:    if(name.length() < 2)
-       27:   13-block  0
-call    0 returned 27
+       42:   13:    if(name.length() < 2)
+       42:   13-block  0
+call    0 returned 42
 branch  1 taken 5 (fallthrough)
-branch  2 taken 22
+branch  2 taken 37
         5:   14:      return false;
         5:   14-block  0
-       22:   15:    return true;
-       22:   15-block  0
+       37:   15:    return true;
+       37:   15-block  0
         -:   16: }
-function _Z23is_valid_hours_per_weekj called 48 returned 100% blocks executed 100%
-       48:   17:bool is_valid_hours_per_week(unsigned int num) {
-       48:   18:  constexpr unsigned MAX_HOURS_PER_WEEK = 24 * 7 / 4;
-       48:   19:  if(num == 0 || num > MAX_HOURS_PER_WEEK)
-       48:   19-block  0
-branch  0 taken 47 (fallthrough)
+function _Z23is_valid_hours_per_weekj called 53 returned 100% blocks executed 100%
+       53:   17:bool is_valid_hours_per_week(unsigned int num) {
+       53:   18:  constexpr unsigned MAX_HOURS_PER_WEEK = 24 * 7 / 4;
+       53:   19:  if(num == 0 || num > MAX_HOURS_PER_WEEK)
+       53:   19-block  0
+branch  0 taken 52 (fallthrough)
 branch  1 taken 1
-       47:   19-block  1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 46
-        2:   20:    return false;
-        2:   20-block  0
-       46:   21:  return true;
-       46:   21-block  0
+       52:   19-block  1
+branch  2 taken 2 (fallthrough)
+branch  3 taken 50
+        3:   20:    return false;
+        3:   20-block  0
+       50:   21:  return true;
+       50:   21-block  0
         -:   22:}

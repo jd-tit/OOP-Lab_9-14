@@ -1,8 +1,2 @@
 # ninja log v5
-20	488	6710828587865703	CMakeFiles/Lab5_Contract_de_studii.dir/validate.cpp.obj	b05a0b31ffbc8cb6
-48	2093	6711148686551696	CMakeFiles/Lab5_Contract_de_studii.dir/test.cpp.obj	1710f56797c2f243
-17	589	6710828588881253	CMakeFiles/Lab5_Contract_de_studii.dir/domain.cpp.obj	4a4f92aefed4620a
-8	1600	6711148681633367	CMakeFiles/Lab5_Contract_de_studii.dir/main.cpp.obj	a53d4b2db093e942
-42	2030	6711148685877243	CMakeFiles/Lab5_Contract_de_studii.dir/user_interface.cpp.obj	8258f3d88b39ec99
-2101	2407	6711149070902530	Lab5_Contract_de_studii.exe	fcb028d0e3b5b294
-4	2101	6711149067810726	CMakeFiles/Lab5_Contract_de_studii.dir/controller.cpp.obj	1d73fd505f8aac8a
+3334	3770	6715810660130412	Lab5_Contract_de_studii.exe	35b3748a41b18883

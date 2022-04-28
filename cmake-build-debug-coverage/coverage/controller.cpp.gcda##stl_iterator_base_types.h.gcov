@@ -1,10 +1,10 @@
-        -:    0:Source:C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator_base_types.h
-        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\controller.cpp.gcno
-        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\controller.cpp.gcda
+        -:    0:Source:/usr/include/c++/9/bits/stl_iterator_base_types.h
+        -:    0:Graph:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/controller.cpp.gcno
+        -:    0:Data:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/controller.cpp.gcda
         -:    0:Runs:1
         -:    1:// Types used in iterator implementation -*- C++ -*-
         -:    2:
-        -:    3:// Copyright (C) 2001-2021 Free Software Foundation, Inc.
+        -:    3:// Copyright (C) 2001-2019 Free Software Foundation, Inc.
         -:    4://
         -:    5:// This file is part of the GNU ISO C++ Library.  This library is free
         -:    6:// software; you can redistribute it and/or modify it under the
@@ -71,103 +71,103 @@
         -:   67:# include <type_traits>  // For __void_t, is_convertible
         -:   68:#endif
         -:   69:
-        -:   70:#if __cplusplus > 201703L && __cpp_concepts >= 201907L
-        -:   71:# include <bits/iterator_concepts.h>
-        -:   72:#endif
+        -:   70:namespace std _GLIBCXX_VISIBILITY(default)
+        -:   71:{
+        -:   72:_GLIBCXX_BEGIN_NAMESPACE_VERSION
         -:   73:
-        -:   74:namespace std _GLIBCXX_VISIBILITY(default)
-        -:   75:{
-        -:   76:_GLIBCXX_BEGIN_NAMESPACE_VERSION
-        -:   77:
-        -:   78:  /**
-        -:   79:   *  @defgroup iterators Iterators
-        -:   80:   *  Abstractions for uniform iterating through various underlying types.
-        -:   81:  */
-        -:   82:  ///@{
-        -:   83:
-        -:   84:  /**
-        -:   85:   *  @defgroup iterator_tags Iterator Tags
-        -:   86:   *  These are empty types, used to distinguish different iterators.  The
-        -:   87:   *  distinction is not made by what they contain, but simply by what they
-        -:   88:   *  are.  Different underlying algorithms can then be used based on the
-        -:   89:   *  different operations supported by different iterator types.
-        -:   90:  */
-        -:   91:  ///@{
-        -:   92:  ///  Marking input iterators.
-        -:   93:  struct input_iterator_tag { };
-        -:   94:
-        -:   95:  ///  Marking output iterators.
-        -:   96:  struct output_iterator_tag { };
-        -:   97:
-        -:   98:  /// Forward iterators support a superset of input iterator operations.
-        -:   99:  struct forward_iterator_tag : public input_iterator_tag { };
+        -:   74:  /**
+        -:   75:   *  @defgroup iterators Iterators
+        -:   76:   *  Abstractions for uniform iterating through various underlying types.
+        -:   77:  */
+        -:   78:  ///@{
+        -:   79:
+        -:   80:  /**
+        -:   81:   *  @defgroup iterator_tags Iterator Tags
+        -:   82:   *  These are empty types, used to distinguish different iterators.  The
+        -:   83:   *  distinction is not made by what they contain, but simply by what they
+        -:   84:   *  are.  Different underlying algorithms can then be used based on the
+        -:   85:   *  different operations supported by different iterator types.
+        -:   86:  */
+        -:   87:  ///@{
+        -:   88:  ///  Marking input iterators.
+        -:   89:  struct input_iterator_tag { };
+        -:   90:
+        -:   91:  ///  Marking output iterators.
+        -:   92:  struct output_iterator_tag { };
+        -:   93:
+        -:   94:  /// Forward iterators support a superset of input iterator operations.
+        -:   95:  struct forward_iterator_tag : public input_iterator_tag { };
+        -:   96:
+        -:   97:  /// Bidirectional iterators support a superset of forward iterator
+        -:   98:  /// operations.
+        -:   99:  struct bidirectional_iterator_tag : public forward_iterator_tag { };
         -:  100:
-        -:  101:  /// Bidirectional iterators support a superset of forward iterator
-        -:  102:  /// operations.
-        -:  103:  struct bidirectional_iterator_tag : public forward_iterator_tag { };
-        -:  104:
-        -:  105:  /// Random-access iterators support a superset of bidirectional
-        -:  106:  /// iterator operations.
-        -:  107:  struct random_access_iterator_tag : public bidirectional_iterator_tag { };
-        -:  108:
-        -:  109:#if __cplusplus > 201703L
-        -:  110:  /// Contiguous iterators point to objects stored contiguously in memory.
-        -:  111:  struct contiguous_iterator_tag : public random_access_iterator_tag { };
-        -:  112:#endif
-        -:  113:  ///@}
-        -:  114:
-        -:  115:  /**
-        -:  116:   *  @brief  Common %iterator class.
-        -:  117:   *
-        -:  118:   *  This class does nothing but define nested typedefs.  %Iterator classes
-        -:  119:   *  can inherit from this class to save some work.  The typedefs are then
-        -:  120:   *  used in specializations and overloading.
-        -:  121:   *
-        -:  122:   *  In particular, there are no default implementations of requirements
-        -:  123:   *  such as @c operator++ and the like.  (How could there be?)
-        -:  124:  */
-        -:  125:  template<typename _Category, typename _Tp, typename _Distance = ptrdiff_t,
-        -:  126:           typename _Pointer = _Tp*, typename _Reference = _Tp&>
-        -:  127:    struct iterator
-        -:  128:    {
-        -:  129:      /// One of the @link iterator_tags tag types@endlink.
-        -:  130:      typedef _Category  iterator_category;
-        -:  131:      /// The type "pointed to" by the iterator.
-        -:  132:      typedef _Tp        value_type;
-        -:  133:      /// Distance between iterators is represented as this type.
-        -:  134:      typedef _Distance  difference_type;
-        -:  135:      /// This type represents a pointer-to-value_type.
-        -:  136:      typedef _Pointer   pointer;
-        -:  137:      /// This type represents a reference-to-value_type.
-        -:  138:      typedef _Reference reference;
-        -:  139:    };
-        -:  140:
-        -:  141:  /**
-        -:  142:   *  @brief  Traits class for iterators.
-        -:  143:   *
-        -:  144:   *  This class does nothing but define nested typedefs.  The general
-        -:  145:   *  version simply @a forwards the nested typedefs from the Iterator
-        -:  146:   *  argument.  Specialized versions for pointers and pointers-to-const
-        -:  147:   *  provide tighter, more correct semantics.
-        -:  148:  */
-        -:  149:  template<typename _Iterator>
-        -:  150:    struct iterator_traits;
-        -:  151:
-        -:  152:#if __cplusplus >= 201103L
-        -:  153:  // _GLIBCXX_RESOLVE_LIB_DEFECTS
-        -:  154:  // 2408. SFINAE-friendly common_type/iterator_traits is missing in C++14
-        -:  155:  template<typename _Iterator, typename = __void_t<>>
-        -:  156:    struct __iterator_traits { };
-        -:  157:
-        -:  158:#if ! __cpp_lib_concepts
-        -:  159:
-        -:  160:  template<typename _Iterator>
-        -:  161:    struct __iterator_traits<_Iterator,
-        -:  162:			     __void_t<typename _Iterator::iterator_category,
-        -:  163:				      typename _Iterator::value_type,
-        -:  164:				      typename _Iterator::difference_type,
-        -:  165:				      typename _Iterator::pointer,
-        -:  166:				      typename _Iterator::reference>>
+        -:  101:  /// Random-access iterators support a superset of bidirectional
+        -:  102:  /// iterator operations.
+        -:  103:  struct random_access_iterator_tag : public bidirectional_iterator_tag { };
+        -:  104:  ///@}
+        -:  105:
+        -:  106:  /**
+        -:  107:   *  @brief  Common %iterator class.
+        -:  108:   *
+        -:  109:   *  This class does nothing but define nested typedefs.  %Iterator classes
+        -:  110:   *  can inherit from this class to save some work.  The typedefs are then
+        -:  111:   *  used in specializations and overloading.
+        -:  112:   *
+        -:  113:   *  In particular, there are no default implementations of requirements
+        -:  114:   *  such as @c operator++ and the like.  (How could there be?)
+        -:  115:  */
+        -:  116:  template<typename _Category, typename _Tp, typename _Distance = ptrdiff_t,
+        -:  117:           typename _Pointer = _Tp*, typename _Reference = _Tp&>
+        -:  118:    struct iterator
+        -:  119:    {
+        -:  120:      /// One of the @link iterator_tags tag types@endlink.
+        -:  121:      typedef _Category  iterator_category;
+        -:  122:      /// The type "pointed to" by the iterator.
+        -:  123:      typedef _Tp        value_type;
+        -:  124:      /// Distance between iterators is represented as this type.
+        -:  125:      typedef _Distance  difference_type;
+        -:  126:      /// This type represents a pointer-to-value_type.
+        -:  127:      typedef _Pointer   pointer;
+        -:  128:      /// This type represents a reference-to-value_type.
+        -:  129:      typedef _Reference reference;
+        -:  130:    };
+        -:  131:
+        -:  132:  /**
+        -:  133:   *  @brief  Traits class for iterators.
+        -:  134:   *
+        -:  135:   *  This class does nothing but define nested typedefs.  The general
+        -:  136:   *  version simply @a forwards the nested typedefs from the Iterator
+        -:  137:   *  argument.  Specialized versions for pointers and pointers-to-const
+        -:  138:   *  provide tighter, more correct semantics.
+        -:  139:  */
+        -:  140:#if __cplusplus >= 201103L
+        -:  141:  // _GLIBCXX_RESOLVE_LIB_DEFECTS
+        -:  142:  // 2408. SFINAE-friendly common_type/iterator_traits is missing in C++14
+        -:  143:  template<typename _Iterator, typename = __void_t<>>
+        -:  144:    struct __iterator_traits { };
+        -:  145:
+        -:  146:  template<typename _Iterator>
+        -:  147:    struct __iterator_traits<_Iterator,
+        -:  148:			     __void_t<typename _Iterator::iterator_category,
+        -:  149:				      typename _Iterator::value_type,
+        -:  150:				      typename _Iterator::difference_type,
+        -:  151:				      typename _Iterator::pointer,
+        -:  152:				      typename _Iterator::reference>>
+        -:  153:    {
+        -:  154:      typedef typename _Iterator::iterator_category iterator_category;
+        -:  155:      typedef typename _Iterator::value_type        value_type;
+        -:  156:      typedef typename _Iterator::difference_type   difference_type;
+        -:  157:      typedef typename _Iterator::pointer           pointer;
+        -:  158:      typedef typename _Iterator::reference         reference;
+        -:  159:    };
+        -:  160:
+        -:  161:  template<typename _Iterator>
+        -:  162:    struct iterator_traits
+        -:  163:    : public __iterator_traits<_Iterator> { };
+        -:  164:#else
+        -:  165:  template<typename _Iterator>
+        -:  166:    struct iterator_traits
         -:  167:    {
         -:  168:      typedef typename _Iterator::iterator_category iterator_category;
         -:  169:      typedef typename _Iterator::value_type        value_type;
@@ -175,120 +175,103 @@
         -:  171:      typedef typename _Iterator::pointer           pointer;
         -:  172:      typedef typename _Iterator::reference         reference;
         -:  173:    };
-        -:  174:#endif // ! concepts
+        -:  174:#endif
         -:  175:
-        -:  176:  template<typename _Iterator>
-        -:  177:    struct iterator_traits
-        -:  178:    : public __iterator_traits<_Iterator> { };
-        -:  179:
-        -:  180:#else // ! C++11
-        -:  181:  template<typename _Iterator>
-        -:  182:    struct iterator_traits
-        -:  183:    {
-        -:  184:      typedef typename _Iterator::iterator_category iterator_category;
-        -:  185:      typedef typename _Iterator::value_type        value_type;
-        -:  186:      typedef typename _Iterator::difference_type   difference_type;
-        -:  187:      typedef typename _Iterator::pointer           pointer;
-        -:  188:      typedef typename _Iterator::reference         reference;
-        -:  189:    };
-        -:  190:#endif // C++11
-        -:  191:
-        -:  192:#if __cplusplus > 201703L
-        -:  193:  /// Partial specialization for object pointer types.
-        -:  194:  template<typename _Tp>
-        -:  195:#if __cpp_concepts >= 201907L
-        -:  196:    requires is_object_v<_Tp>
-        -:  197:#endif
-        -:  198:    struct iterator_traits<_Tp*>
-        -:  199:    {
-        -:  200:      using iterator_concept  = contiguous_iterator_tag;
-        -:  201:      using iterator_category = random_access_iterator_tag;
-        -:  202:      using value_type	      = remove_cv_t<_Tp>;
-        -:  203:      using difference_type   = ptrdiff_t;
-        -:  204:      using pointer	      = _Tp*;
-        -:  205:      using reference	      = _Tp&;
-        -:  206:    };
-        -:  207:#else
-        -:  208:  /// Partial specialization for pointer types.
-        -:  209:  template<typename _Tp>
-        -:  210:    struct iterator_traits<_Tp*>
-        -:  211:    {
-        -:  212:      typedef random_access_iterator_tag iterator_category;
-        -:  213:      typedef _Tp                         value_type;
-        -:  214:      typedef ptrdiff_t                   difference_type;
-        -:  215:      typedef _Tp*                        pointer;
-        -:  216:      typedef _Tp&                        reference;
-        -:  217:    };
-        -:  218:
-        -:  219:  /// Partial specialization for const pointer types.
-        -:  220:  template<typename _Tp>
-        -:  221:    struct iterator_traits<const _Tp*>
-        -:  222:    {
-        -:  223:      typedef random_access_iterator_tag iterator_category;
-        -:  224:      typedef _Tp                         value_type;
-        -:  225:      typedef ptrdiff_t                   difference_type;
-        -:  226:      typedef const _Tp*                  pointer;
-        -:  227:      typedef const _Tp&                  reference;
-        -:  228:    };
-        -:  229:#endif
-        -:  230:
-        -:  231:  /**
-        -:  232:   *  This function is not a part of the C++ standard but is syntactic
-        -:  233:   *  sugar for internal library use only.
-        -:  234:  */
-        -:  235:  template<typename _Iter>
-        -:  236:    inline _GLIBCXX_CONSTEXPR
-        -:  237:    typename iterator_traits<_Iter>::iterator_category
-      553:  238:    __iterator_category(const _Iter&)
-      553:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
-------------------
-_ZSt19__iterator_categoryIN6VectorI6CourseE14const_iteratorEENSt15iterator_traitsIT_E17iterator_categoryERKS5_:
-function _ZSt19__iterator_categoryIN6VectorI6CourseE14const_iteratorEENSt15iterator_traitsIT_E17iterator_categoryERKS5_ called 12 returned 100% blocks executed 100%
-       12:  238:    __iterator_category(const _Iter&)
-       12:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
-       12:  239-block  0
-------------------
-_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_:
-function _ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ called 88 returned 100% blocks executed 100%
-       88:  238:    __iterator_category(const _Iter&)
-       88:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
-       88:  239-block  0
+        -:  176:  /// Partial specialization for pointer types.
+        -:  177:  template<typename _Tp>
+        -:  178:    struct iterator_traits<_Tp*>
+        -:  179:    {
+        -:  180:      typedef random_access_iterator_tag iterator_category;
+        -:  181:      typedef _Tp                         value_type;
+        -:  182:      typedef ptrdiff_t                   difference_type;
+        -:  183:      typedef _Tp*                        pointer;
+        -:  184:      typedef _Tp&                        reference;
+        -:  185:    };
+        -:  186:
+        -:  187:  /// Partial specialization for const pointer types.
+        -:  188:  template<typename _Tp>
+        -:  189:    struct iterator_traits<const _Tp*>
+        -:  190:    {
+        -:  191:      typedef random_access_iterator_tag iterator_category;
+        -:  192:      typedef _Tp                         value_type;
+        -:  193:      typedef ptrdiff_t                   difference_type;
+        -:  194:      typedef const _Tp*                  pointer;
+        -:  195:      typedef const _Tp&                  reference;
+        -:  196:    };
+        -:  197:
+        -:  198:  /**
+        -:  199:   *  This function is not a part of the C++ standard but is syntactic
+        -:  200:   *  sugar for internal library use only.
+        -:  201:  */
+        -:  202:  template<typename _Iter>
+        -:  203:    inline _GLIBCXX_CONSTEXPR
+        -:  204:    typename iterator_traits<_Iter>::iterator_category
+      29*:  205:    __iterator_category(const _Iter&)
+      29*:  206:    { return typename iterator_traits<_Iter>::iterator_category(); }
 ------------------
 _ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_:
-function _ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_ called 453 returned 100% blocks executed 100%
-      453:  238:    __iterator_category(const _Iter&)
-      453:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
-      453:  239-block  0
+function _ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_ called 0 returned 0% blocks executed 0%
+    #####:  205:    __iterator_category(const _Iter&)
+    #####:  206:    { return typename iterator_traits<_Iter>::iterator_category(); }
+    %%%%%:  206-block  0
 ------------------
+_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_:
+function _ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ called 0 returned 0% blocks executed 0%
+    #####:  205:    __iterator_category(const _Iter&)
+    #####:  206:    { return typename iterator_traits<_Iter>::iterator_category(); }
+    %%%%%:  206-block  0
+------------------
+_ZSt19__iterator_categoryIN9__gnu_cxx17__normal_iteratorIPK6CourseSt6vectorIS2_SaIS2_EEEEENSt15iterator_traitsIT_E17iterator_categoryERKSA_:
+function _ZSt19__iterator_categoryIN9__gnu_cxx17__normal_iteratorIPK6CourseSt6vectorIS2_SaIS2_EEEEENSt15iterator_traitsIT_E17iterator_categoryERKSA_ called 2 returned 100% blocks executed 100%
+        2:  205:    __iterator_category(const _Iter&)
+        2:  206:    { return typename iterator_traits<_Iter>::iterator_category(); }
+        2:  206-block  0
+------------------
+_ZSt19__iterator_categoryIN9__gnu_cxx17__normal_iteratorIP6CourseSt6vectorIS2_SaIS2_EEEEENSt15iterator_traitsIT_E17iterator_categoryERKS9_:
+function _ZSt19__iterator_categoryIN9__gnu_cxx17__normal_iteratorIP6CourseSt6vectorIS2_SaIS2_EEEEENSt15iterator_traitsIT_E17iterator_categoryERKS9_ called 15 returned 100% blocks executed 100%
+       15:  205:    __iterator_category(const _Iter&)
+       15:  206:    { return typename iterator_traits<_Iter>::iterator_category(); }
+       15:  206-block  0
+------------------
+_ZSt19__iterator_categoryIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEENSt15iterator_traitsIT_E17iterator_categoryERKSE_:
+function _ZSt19__iterator_categoryIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEENSt15iterator_traitsIT_E17iterator_categoryERKSE_ called 12 returned 100% blocks executed 100%
+       12:  205:    __iterator_category(const _Iter&)
+       12:  206:    { return typename iterator_traits<_Iter>::iterator_category(); }
+       12:  206-block  0
+------------------
+        -:  207:
+        -:  208:  ///@}
+        -:  209:
+        -:  210:#if __cplusplus < 201103L
+        -:  211:  // If _Iterator has a base returns it otherwise _Iterator is returned
+        -:  212:  // untouched
+        -:  213:  template<typename _Iterator, bool _HasBase>
+        -:  214:    struct _Iter_base
+        -:  215:    {
+        -:  216:      typedef _Iterator iterator_type;
+        -:  217:      static iterator_type _S_base(_Iterator __it)
+        -:  218:      { return __it; }
+        -:  219:    };
+        -:  220:
+        -:  221:  template<typename _Iterator>
+        -:  222:    struct _Iter_base<_Iterator, true>
+        -:  223:    {
+        -:  224:      typedef typename _Iterator::iterator_type iterator_type;
+        -:  225:      static iterator_type _S_base(_Iterator __it)
+        -:  226:      { return __it.base(); }
+        -:  227:    };
+        -:  228:#endif
+        -:  229:
+        -:  230:#if __cplusplus >= 201103L
+        -:  231:  template<typename _InIter>
+        -:  232:    using _RequireInputIter = typename
+        -:  233:      enable_if<is_convertible<typename
+        -:  234:		iterator_traits<_InIter>::iterator_category,
+        -:  235:			       input_iterator_tag>::value>::type;
+        -:  236:#endif
+        -:  237:
+        -:  238:_GLIBCXX_END_NAMESPACE_VERSION
+        -:  239:} // namespace
         -:  240:
-        -:  241:  ///@}
+        -:  241:#endif /* _STL_ITERATOR_BASE_TYPES_H */
         -:  242:
-        -:  243:#if __cplusplus >= 201103L
-        -:  244:  template<typename _Iter>
-        -:  245:    using __iterator_category_t
-        -:  246:      = typename iterator_traits<_Iter>::iterator_category;
-        -:  247:
-        -:  248:  template<typename _InIter>
-        -:  249:    using _RequireInputIter =
-        -:  250:      __enable_if_t<is_convertible<__iterator_category_t<_InIter>,
-        -:  251:				   input_iterator_tag>::value>;
-        -:  252:
-        -:  253:  template<typename _It,
-        -:  254:	   typename _Cat = __iterator_category_t<_It>>
-        -:  255:    struct __is_random_access_iter
-        -:  256:      : is_base_of<random_access_iterator_tag, _Cat>
-        -:  257:    {
-        -:  258:      typedef is_base_of<random_access_iterator_tag, _Cat> _Base;
-        -:  259:      enum { __value = _Base::value };
-        -:  260:    };
-        -:  261:#else
-        -:  262:  template<typename _It, typename _Traits = iterator_traits<_It>,
-        -:  263:	   typename _Cat = typename _Traits::iterator_category>
-        -:  264:    struct __is_random_access_iter
-        -:  265:    { enum { __value = __is_base_of(random_access_iterator_tag, _Cat) }; };
-        -:  266:#endif
-        -:  267:
-        -:  268:_GLIBCXX_END_NAMESPACE_VERSION
-        -:  269:} // namespace
-        -:  270:
-        -:  271:#endif /* _STL_ITERATOR_BASE_TYPES_H */

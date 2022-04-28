@@ -6,12 +6,12 @@
 #define LAB5_CONTRACT_DE_STUDII_REPO_H
 
 #include <vector>
-#include "Vector.h"
+#include "domain.h"
 
 template<typename T>
 class Repo{
-private:
-  Vector<T> contents;
+protected:
+    std::vector<T> contents;
 public:
   size_t next_free_id;
 
@@ -47,7 +47,7 @@ public:
    * Get an iterator to the beginning of the Repository
    * @return
    */
-  typename Vector<T>::iterator begin(){
+  typename std::vector<T>::iterator begin(){
     return contents.begin();
   }
 
@@ -55,7 +55,7 @@ public:
      * Get a const iterator to the beginning of the Repository
      * @return
      */
-    typename Vector<T>::const_iterator begin() const{
+    typename std::vector<T>::const_iterator begin() const{
       return cbegin();
     }
 
@@ -63,7 +63,7 @@ public:
      * Get a const iterator to the beginning of the Repository
      * @return
      */
-    typename Vector<T>::const_iterator cbegin() const{
+    typename std::vector<T>::const_iterator cbegin() const{
       return contents.cbegin();
     }
 
@@ -71,7 +71,7 @@ public:
      * Get an iterator to one past the end of the Repository
      * @return
      */
-  typename Vector<T>::iterator end(){
+  typename std::vector<T>::iterator end(){
     return contents.end();
   }
 
@@ -79,7 +79,7 @@ public:
        * Get an iterator to one past the end of the Repository
        * @return
        */
-    typename Vector<T>::const_iterator end() const{
+    typename std::vector<T>::const_iterator end() const{
       return cend();
     }
 
@@ -87,7 +87,7 @@ public:
        * Get a const iterator to one past the end of the Repository
        * @return
        */
-    typename Vector<T>::const_iterator cend() const{
+    typename std::vector<T>::const_iterator cend() const{
       return contents.cend();
     }
 
@@ -127,7 +127,7 @@ public:
    * Get the internal vector.
    * @return
    */
-  Vector<Course>& getVector(){
+  std::vector<Course>& getVector(){
     return contents;
   }
 };

@@ -1,10 +1,10 @@
-        -:    0:Source:C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/aligned_buffer.h
-        -:    0:Graph:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\user_interface.cpp.gcno
-        -:    0:Data:C:\Projects\fac\OOP\Lab5_Contract_de_studii\cmake-build-debug-coverage\CMakeFiles\Lab5_Contract_de_studii.dir\user_interface.cpp.gcda
+        -:    0:Source:/usr/include/c++/9/ext/aligned_buffer.h
+        -:    0:Graph:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/user_interface.cpp.gcno
+        -:    0:Data:/mnt/c/Projects/fac/OOP/Lab8/cmake-build-debug-coverage/CMakeFiles/Lab5_Contract_de_studii.dir/user_interface.cpp.gcda
         -:    0:Runs:1
         -:    1:// Aligned memory buffer -*- C++ -*-
         -:    2:
-        -:    3:// Copyright (C) 2013-2021 Free Software Foundation, Inc.
+        -:    3:// Copyright (C) 2013-2019 Free Software Foundation, Inc.
         -:    4://
         -:    5:// This file is part of the GNU ISO C++ Library.  This library is free
         -:    6:// software; you can redistribute it and/or modify it under the
@@ -103,12 +103,27 @@
         -:   99:      __aligned_buffer(std::nullptr_t) { }
         -:  100:
         -:  101:      void*
+    #####:  102:      _M_addr() noexcept
+        -:  103:      {
+    #####:  104:        return static_cast<void*>(&_M_storage);
+        -:  105:      }
+------------------
+_ZN9__gnu_cxx16__aligned_bufferISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEEEE7_M_addrEv:
 function _ZN9__gnu_cxx16__aligned_bufferISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEEEE7_M_addrEv called 0 returned 0% blocks executed 0%
     #####:  102:      _M_addr() noexcept
         -:  103:      {
     #####:  104:        return static_cast<void*>(&_M_storage);
     %%%%%:  104-block  0
         -:  105:      }
+------------------
+_ZN9__gnu_cxx16__aligned_bufferISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEE7_M_addrEv:
+function _ZN9__gnu_cxx16__aligned_bufferISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEE7_M_addrEv called 0 returned 0% blocks executed 0%
+    #####:  102:      _M_addr() noexcept
+        -:  103:      {
+    #####:  104:        return static_cast<void*>(&_M_storage);
+    %%%%%:  104-block  0
+        -:  105:      }
+------------------
         -:  106:
         -:  107:      const void*
         -:  108:      _M_addr() const noexcept
@@ -117,11 +132,23 @@ function _ZN9__gnu_cxx16__aligned_bufferISt4pairIKNSt7__cxx1112basic_stringIcSt1
         -:  111:      }
         -:  112:
         -:  113:      _Tp*
+    #####:  114:      _M_ptr() noexcept
+    #####:  115:      { return static_cast<_Tp*>(_M_addr()); }
+------------------
+_ZN9__gnu_cxx16__aligned_bufferISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEEEE6_M_ptrEv:
 function _ZN9__gnu_cxx16__aligned_bufferISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEEEE6_M_ptrEv called 0 returned 0% blocks executed 0%
     #####:  114:      _M_ptr() noexcept
     #####:  115:      { return static_cast<_Tp*>(_M_addr()); }
     %%%%%:  115-block  0
 call    0 never executed
+------------------
+_ZN9__gnu_cxx16__aligned_bufferISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEE6_M_ptrEv:
+function _ZN9__gnu_cxx16__aligned_bufferISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEE6_M_ptrEv called 0 returned 0% blocks executed 0%
+    #####:  114:      _M_ptr() noexcept
+    #####:  115:      { return static_cast<_Tp*>(_M_addr()); }
+    %%%%%:  115-block  0
+call    0 never executed
+------------------
         -:  116:
         -:  117:      const _Tp*
         -:  118:      _M_ptr() const noexcept

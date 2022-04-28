@@ -12,3 +12,9 @@ std::string Course::to_str() const{
 size_t Course::get_id() const{
   return id;
 }
+
+std::string Course::to_csv() const {
+    std::stringstream ss;
+    ss<< id << "," << name << "," << type << "," << teacher << "," << hours_per_week;
+    return ss.str();
+}

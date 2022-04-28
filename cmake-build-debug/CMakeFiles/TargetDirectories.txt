@@ -1,3 +1,3 @@
-C:/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/CMakeFiles/Lab5_Contract_de_studii.dir
-C:/Projects/fac/OOP/Lab5_Contract_de_studii/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/jdt/Projects/fac/OOP/Lab8/cmake-build-debug/CMakeFiles/Lab5_Contract_de_studii.dir
+/home/jdt/Projects/fac/OOP/Lab8/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/jdt/Projects/fac/OOP/Lab8/cmake-build-debug/CMakeFiles/rebuild_cache.dir
