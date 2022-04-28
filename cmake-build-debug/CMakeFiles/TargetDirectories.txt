@@ -1,3 +1,0 @@
-/home/jdt/Projects/fac/OOP/Lab8/cmake-build-debug/CMakeFiles/Lab5_Contract_de_studii.dir
-/home/jdt/Projects/fac/OOP/Lab8/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/jdt/Projects/fac/OOP/Lab8/cmake-build-debug/CMakeFiles/rebuild_cache.dir
