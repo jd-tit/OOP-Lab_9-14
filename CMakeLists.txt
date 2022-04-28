@@ -18,4 +18,5 @@ add_executable(Lab5_Contract_de_studii
         validate.h
         test.cpp
         test.h
-        Vector.h exception.h contract.cpp contract.h)
+        Vector.h exception.h contract.cpp contract.h
+        undo_action.hpp undo_action.cpp)

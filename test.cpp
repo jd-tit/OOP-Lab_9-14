@@ -196,7 +196,7 @@ void testControl(){
     }
     catch(std::invalid_argument&){}
 
-    ctrl.modify_course("2", "Math", "Terry Tao", "optional", "10");
+    ctrl.modify_course("2", Course{"Math", "optional", "Terry Tao",  10, 2});
 
     ctrl.remove_course("0");
     assert(ctrl.getAll().get_size() == 3);
@@ -244,6 +244,36 @@ void testControl(){
 
     assert((*data)["mandatory"] == 1);
     assert((*data)["optional"] == 2);
+}
+
+void testUndo() {
+    ContractController ctrl;
+    ctrl.add_course("Math", "Terry Tao", "mandatory", "8");
+    ctrl.add_course("Music", "Lena Raine", "optional", "5");
+
+    assert(ctrl.getAll().get_size() == 2);
+
+    ctrl.undo_last();
+    assert(ctrl.getAll().get_size() == 1);
+
+    Course c1{"Painting", "optional", "Bob Ross", 4, 0};
+    ctrl.modify_course("0", c1);
+
+    ctrl.undo_last();
+
+    ctrl.getCourse("Math");
+    try {
+        ctrl.getCourse("Painting");
+        assert(false);
+    } catch(std::exception& e) {}
+
+
+    ctrl.remove_course("0");
+    assert(ctrl.getAll().get_size() == 0);
+
+    ctrl.undo_last();
+    assert(ctrl.getAll().get_size() == 1);
+
 }
 
 //void testVector(){
@@ -331,6 +361,7 @@ void run_all_tests() {
   testValidate();
   testRepo();
   testControl();
+  testUndo();
 //  testVector();
 
 //  testBadSort();

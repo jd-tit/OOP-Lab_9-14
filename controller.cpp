@@ -20,6 +20,7 @@ void ContractController::add_course(const std::string &name, const std::string &
                                     const std::string &hours_per_week) {
     unsigned numerical_hpw;
 
+    // VALIDATION
     if (!is_valid_string(name)) {
         throw (NameError("Error: Invalid name."));
     }
@@ -42,12 +43,18 @@ void ContractController::add_course(const std::string &name, const std::string &
         throw (HoursPerWeekError("Invalid number of hours per week."));
     }
 
+
+    // ADD TO REPO
     try {
         getCourse(name);
     }
     catch (std::out_of_range &e) {
         Course course{name, type, teacher, numerical_hpw, i_repo.next_free_id};
         i_repo.add(course);
+
+        UndoData undoData{course, i_repo.get_size(), i_repo};
+        auto* new_undoAction = new UndoAdd{undoData};
+        undoList.emplace_back(new_undoAction);
         return;
     }
     throw (std::invalid_argument("Error: Duplicate name."));
@@ -58,21 +65,31 @@ const Repo<Course> &ContractController::getAll() {
 }
 
 void ContractController::remove_course(const std::string &id_buff) {
+    // RECORD ACTION FOR UNDO
     size_t target_id = std::stoi(id_buff);
-    i_repo.remove_by_id(target_id);
+    auto it = i_repo.find_iterator_by_id(target_id);
+
+    size_t index = std::distance(i_repo.begin(), it);
+    UndoData undoData{*it, index, i_repo};
+    auto* new_undoAction = new UndoDelete{undoData};
+    undoList.emplace_back(new_undoAction);
+
+    // REMOVE
+    i_repo.remove_at(it);
 }
 
-void ContractController::modify_course(const std::string &id_buff,
-                                       const std::string &name,
-                                       const std::string &teacher,
-                                       const std::string &type,
-                                       const std::string &hours_per_week) {
-    auto &res = i_repo.find_by_id(std::stoi(id_buff));
-    auto hpw = std::stoi(hours_per_week);
-    res.set_name(name);
-    res.set_teacher(teacher);
-    res.set_type(type);
-    res.set_hpw(hpw);
+void ContractController::modify_course(const std::string &id_buff, const Course& modified) {
+    // FIND
+    auto res = i_repo.find_iterator_by_id(std::stoi(id_buff));
+
+    // RECORD FOR UNDO
+    size_t index = std::distance(i_repo.begin(), res);
+    UndoData undoData{*res, index, i_repo};
+    auto* new_undoAction = new UndoModify{undoData};
+    undoList.emplace_back(new_undoAction);
+
+    // MODIFY
+    *res = modified;
 }
 
 const Course &ContractController::getCourse(const std::string &name) {
@@ -221,6 +238,15 @@ std::unique_ptr<std::unordered_map<std::basic_string<char>, unsigned long>> Cont
         }
     }
     return data;
+}
+void ContractController::undo_last() {
+    if(undoList.empty()){
+        throw(std::out_of_range{"Error: Nothing to undo."});
+    }
+
+    auto undo_action = std::move(undoList.back());
+    undoList.pop_back();
+    undo_action->doUndo();
 }
 
 //int pivot(std::vector<Course> &list, int l, int r,

@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include <string>
+
+
 #include "controller.h"
 
 class UserInterface{
@@ -113,8 +115,13 @@ public:
      */
     void printContractCourseCount();
 
-
+    /*
+     * Print a report about how many courses of each type there are in the database.
+     * */
     void typeReport();
+
+    /** Undo the last add, modify, or delete action. */
+    void undoLast();
 };
 
 #endif //LAB5_CONTRACT_DE_STUDII_USER_INTERFACE_H

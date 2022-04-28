@@ -9,11 +9,13 @@
 #include "domain.h"
 
 template<typename T>
-class Repo{
+class Repo {
 protected:
     std::vector<T> contents;
 public:
   size_t next_free_id;
+
+  typedef typename std::vector<T>::iterator iterator;
 
   Repo();
 
@@ -24,6 +26,15 @@ public:
    */
   const T& at(size_t index) const{
     return contents.at(index);
+  }
+
+  /**
+   * Get the element at a given index
+   * @param index
+   * @return
+   */
+  T& at(size_t index){
+      return contents.at(index);
   }
 
   /**
@@ -91,7 +102,7 @@ public:
       return contents.cend();
     }
 
-  //Find an element by its ID
+  // Find an element by its ID
   T& find_by_id(size_t id){
     auto res = std::find_if(begin(), end(),
                             [id] (const T& first)
@@ -99,6 +110,16 @@ public:
     if(res == end())
       throw std::out_of_range("Error: ID not found");
     return *res;
+  }
+
+  // Find an element's iterator by its ID
+  iterator find_iterator_by_id(size_t id){
+      auto res = std::find_if(begin(), end(),
+                              [id] (const T& first)
+                              {return first.get_id() == id;});
+      if(res == end())
+          throw std::out_of_range("Error: ID not found");
+      return res;
   }
 
   /**
@@ -115,12 +136,28 @@ public:
   }
 
   /**
+   * Insert an element before a given index
+   * @param index
+   */
+  void insert_at(const T& element, size_t index){
+      contents.insert(contents.begin() + index, element);
+  }
+
+  /**
    * Remove the element at a certain index.
    * @param index
    */
   void remove_at(size_t index){
     auto it = begin() + index;
     contents.erase(it);
+  }
+
+  /**
+   * Remove the element at a certain iterator.
+   * @param index
+   */
+  void remove_at(iterator it){
+      contents.erase(it);
   }
 
   /**
@@ -131,6 +168,10 @@ public:
     return contents;
   }
 };
+
+
+
+
 template <typename T> Repo<T>::Repo() : next_free_id(0){}
 
 #endif // LAB5_CONTRACT_DE_STUDII_REPO_H

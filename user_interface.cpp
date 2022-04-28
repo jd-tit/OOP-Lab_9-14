@@ -14,6 +14,7 @@
     std::unordered_map<std::string, std::function<void()>> valid_commands;
 
     while (true) {
+        std::cout << std::endl;
         print_help_menu();
         read_w_message(cmd, "-->");
 
@@ -46,6 +47,8 @@
             generateContract();
         } else if (cmd == "type report" || cmd == "tr") {
             typeReport();
+        } else if (cmd == "undo" || cmd == "u") {
+            undoLast();
         } else {
             print_error("Invalid command.");
         }
@@ -67,7 +70,8 @@ void UserInterface::print_help_menu() {
               "'clear contract' or 'cc': Clear all courses from the contract\n" <<
               "'export contract' or 'ex c': Export the contract ot a file\n" <<
               "'generate contract' or 'gen c': Generate a random contract.\n" <<
-              "'type report' or 'tr': Generate a report about the types of courses."<<
+              "'type report' or 'tr': Generate a report about the types of courses.\n" <<
+              "'undo' or 'u': Undo last add/delete/modify." <<
               std::endl;
 }
 
@@ -121,7 +125,8 @@ void UserInterface::modifyCourse() {
     read_w_message(hours_string, "How many hours per week will this course take: ");
 
     try {
-        UserInterface::ctrl.modify_course(id_buff, name, teacher, type, hours_string);
+        Course modded(name, type, teacher, std::stoi(hours_string), std::stoi(id_buff));
+        UserInterface::ctrl.modify_course(id_buff, modded);
     }
     catch (std::out_of_range &e) {
         print_error(e.what());
@@ -309,4 +314,15 @@ void UserInterface::typeReport() {
     for(const auto& it : *type_data){
         std::cout << it.first << ": " << it.second << std::endl;
     }
+}
+
+void UserInterface::undoLast() {
+    try {
+        ctrl.undo_last();
+    } catch (std::out_of_range& e) {
+        print_error(e.what());
+        return;
+    }
+
+    std::cout << "Undo successful!" << std::endl;
 }

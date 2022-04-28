@@ -14,11 +14,13 @@
 #include "domain.h"
 #include "repo.h"
 #include "contract.h"
+#include "undo_action.hpp"
 
 class ContractController {
 private:
     Repo<Course> i_repo;
     Contract contract;
+    std::vector<std::unique_ptr<UndoAction>> undoList;
 
     static std::vector<std::string> people_names, course_names, course_types;
     static std::default_random_engine rng;
@@ -95,10 +97,7 @@ public:
      * @param type The new type of the course
      * @param hours_per_week The new number of hours per week.
      */
-    void modify_course(const std::string &id_buff, const std::string &name,
-                       const std::string &teacher,
-                       const std::string &type,
-                       const std::string &hours_per_week);
+    void modify_course(const std::string &id_buff, const Course& modified_course);
 
     /**
      * Get the course matching a given course name.
@@ -164,6 +163,11 @@ public:
      * @return
      */
     std::unique_ptr<std::unordered_map<std::string, size_t>> getCourseTypeData();
+
+    /**
+     * Undo last add, remove, or modify action.
+     */
+    void undo_last();
 };
 
 #endif //LAB5_CONTRACT_DE_STUDII_CONTROLLER_H
