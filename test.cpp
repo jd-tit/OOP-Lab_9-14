@@ -356,14 +356,51 @@ void testUndo() {
 //  assert(result->at(1).to_str() == c1.to_str());
 //}
 
+void testFileOps(){
+    ContractController ctrl;
+
+    // TEST ADDING
+    ctrl.add_course("Math", "Terry Tao", "mandatory", "8");
+    Repo<Course> tmp_repo;
+    tmp_repo.read_from_file();
+    assert(tmp_repo.get_size() == 1);
+
+
+    // TEST MODIFYING
+    Course c1{"Painting", "optional", "Bob Ross", 4, 0};
+    ctrl.modify_course("0", c1);
+
+    tmp_repo.getVector().clear();
+    tmp_repo.read_from_file();
+    assert(tmp_repo.get_size() == 1);
+    assert(tmp_repo.at(0).to_str() == c1.to_str());
+
+
+    // TEST DELETING
+    ctrl.remove_course("0");
+
+    tmp_repo.getVector().clear();
+    tmp_repo.read_from_file();
+    assert(tmp_repo.get_size() == 0);
+
+    //TEST UNDO
+
+    ctrl.undo_last();
+
+    tmp_repo.getVector().clear();
+    tmp_repo.read_from_file();
+    assert(tmp_repo.get_size() == 1);
+    assert(tmp_repo.at(0).to_str() == c1.to_str());
+}
+
 void run_all_tests() {
   testDomain();
   testValidate();
   testRepo();
   testControl();
   testUndo();
+  testFileOps();
 //  testVector();
-
 //  testBadSort();
 
   std::cout << "All tests ran successfully!" << std::endl;

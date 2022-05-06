@@ -6,5 +6,5 @@ int main() {
     run_all_tests();
 //    UserInterface ui;
 //    ui.command_loop();
-//    return 0;
+    return 0;
 }

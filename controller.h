@@ -10,6 +10,7 @@
 #include <fstream>
 #include <random>
 #include <unordered_map>
+#include <utility>
 
 #include "domain.h"
 #include "repo.h"
@@ -34,7 +35,7 @@ private:
     }
 
 public:
-    ContractController() : i_repo(Repo<Course>()), contract{Contract()} {}
+    explicit ContractController(std::string repo_filename = "test_data.csv") : i_repo(Repo<Course>(std::move(repo_filename))), contract{Contract()} {}
 
     /**
      * Initialize static members of ContractController
@@ -168,6 +169,11 @@ public:
      * Undo last add, remove, or modify action.
      */
     void undo_last();
+
+    /**
+     * Get Courses from file and add them to the repo
+     */
+    void fill_repo_from_file();
 };
 
 #endif //LAB5_CONTRACT_DE_STUDII_CONTROLLER_H

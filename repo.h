@@ -5,19 +5,25 @@
 #ifndef LAB5_CONTRACT_DE_STUDII_REPO_H
 #define LAB5_CONTRACT_DE_STUDII_REPO_H
 
+#include <utility>
 #include <vector>
+#include <fstream>
+
 #include "domain.h"
 
 template<typename T>
 class Repo {
+private:
+    std::string filename;
+
 protected:
     std::vector<T> contents;
+
 public:
   size_t next_free_id;
-
   typedef typename std::vector<T>::iterator iterator;
 
-  Repo();
+  explicit Repo(std::string filename = "test_data.csv"): filename(std::move(filename)), next_free_id(0) {}
 
   /**
    * Get the element at a given index
@@ -167,11 +173,34 @@ public:
   std::vector<Course>& getVector(){
     return contents;
   }
+
+void write_to_file() {
+    std::fstream output(this->filename, std::ios::out | std::ios::trunc);
+
+    for(const Course& e : this->contents){
+        output << e.to_csv() << std::endl;
+    }
+  }
+
+  void read_from_file() {
+      std::fstream input(this->filename, std::ios::in);
+
+      if(!input.is_open()){
+          // create file if it does not exist yet
+          std::fstream temp(this->filename, std::ios::out);
+          if(!temp.is_open()){
+              std::string errmsg("File '" + this->filename + "' could not be created.");
+              throw(std::out_of_range(errmsg));
+          }
+          temp.close();
+      }
+
+      std::string csv_course;
+      while(std::getline(input, csv_course)){
+          if(csv_course.empty())
+              break;
+          this->add(*Course::from_csv(csv_course));
+      }
+  }
 };
-
-
-
-
-template <typename T> Repo<T>::Repo() : next_free_id(0){}
-
 #endif // LAB5_CONTRACT_DE_STUDII_REPO_H

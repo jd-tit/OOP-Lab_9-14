@@ -8,12 +8,14 @@
 #include <string>
 #include <utility>
 #include <iostream>
+#include <memory>
 
 class Course{
 private:
     std::string name, type, teacher;
     unsigned int hours_per_week;
     size_t id;
+
 public:
   Course(const std::string& name, const std::string& type,
          const std::string& teacher,
@@ -96,6 +98,7 @@ public:
    */
   [[nodiscard]] std::string to_csv() const;
 
+  static std::unique_ptr<Course> from_csv(const std::string& csv);
 };
 
 #endif //LAB5_CONTRACT_DE_STUDII_DOMAIN_H

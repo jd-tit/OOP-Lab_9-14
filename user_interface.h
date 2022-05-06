@@ -31,7 +31,9 @@ private:
   static void print_error(const char message[]);
 
 public:
-    UserInterface() : ctrl(ContractController()) {}
+    UserInterface() : ctrl(ContractController()) {
+        ctrl.fill_repo_from_file();
+    }
 
     /**
      * The main command loop

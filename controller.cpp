@@ -55,6 +55,7 @@ void ContractController::add_course(const std::string &name, const std::string &
         UndoData undoData{course, i_repo.get_size(), i_repo};
         auto* new_undoAction = new UndoAdd{undoData};
         undoList.emplace_back(new_undoAction);
+        i_repo.write_to_file();
         return;
     }
     throw (std::invalid_argument("Error: Duplicate name."));
@@ -76,6 +77,7 @@ void ContractController::remove_course(const std::string &id_buff) {
 
     // REMOVE
     i_repo.remove_at(it);
+    i_repo.write_to_file();
 }
 
 void ContractController::modify_course(const std::string &id_buff, const Course& modified) {
@@ -90,6 +92,7 @@ void ContractController::modify_course(const std::string &id_buff, const Course&
 
     // MODIFY
     *res = modified;
+    i_repo.write_to_file();
 }
 
 const Course &ContractController::getCourse(const std::string &name) {
@@ -247,6 +250,10 @@ void ContractController::undo_last() {
     auto undo_action = std::move(undoList.back());
     undoList.pop_back();
     undo_action->doUndo();
+    i_repo.write_to_file();
+}
+void ContractController::fill_repo_from_file() {
+    i_repo.read_from_file();
 }
 
 //int pivot(std::vector<Course> &list, int l, int r,
