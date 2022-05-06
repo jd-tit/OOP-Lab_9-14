@@ -9,47 +9,54 @@
 #include <unordered_map>
 #include <functional>
 
-[[noreturn]] void UserInterface::command_loop() {
+void UserInterface::command_loop() {
     std::string cmd;
     std::unordered_map<std::string, std::function<void()>> valid_commands;
 
-    while (true) {
-        print_help_menu();
-        read_w_message(cmd, "-->");
+    MainWindow mainWindow;
+    mainWindow.show();
+    QApplication::exec();
 
-
-        if (cmd == "add") {
-            addCourse();
-        } else if (cmd == "exit") {
-            exit_gracefully();
-        } else if (cmd == "list") {
-            listAll();
-        } else if (cmd == "rm") {
-            deleteCourse();
-        } else if (cmd == "mod") {
-            modifyCourse();
-        } else if (cmd == "find name") {
-            findCourseByName();
-        } else if (cmd == "filter hpw") {
-            filterByHPW();
-        } else if (cmd == "filter teacher") {
-            filterByTeacher();
-        } else if (cmd == "sorted by") {
-            getSortedBy();
-        } else if (cmd == "add to contract" || cmd == "a2c") {
-            addCourseToContract();
-        } else if (cmd == "clear contract" || cmd == "cc") {
-            clearContract();
-        } else if (cmd == "export contract" || cmd == "ex c") {
-            exportContract();
-        } else if (cmd == "generate contract" || cmd == "gen c") {
-            generateContract();
-        } else if (cmd == "type report" || cmd == "tr") {
-            typeReport();
-        } else {
-            print_error("Invalid command.");
-        }
-    }
+//    while (true) {
+//        std::cout << std::endl;
+//        print_help_menu();
+//        read_w_message(cmd, "-->");
+//
+//
+//        if (cmd == "add") {
+//            addCourse();
+//        } else if (cmd == "exit") {
+//            exit_gracefully();
+//        } else if (cmd == "list") {
+//            listAll();
+//        } else if (cmd == "rm") {
+//            deleteCourse();
+//        } else if (cmd == "mod") {
+//            modifyCourse();
+//        } else if (cmd == "find name") {
+//            findCourseByName();
+//        } else if (cmd == "filter hpw") {
+//            filterByHPW();
+//        } else if (cmd == "filter teacher") {
+//            filterByTeacher();
+//        } else if (cmd == "sorted by") {
+//            getSortedBy();
+//        } else if (cmd == "add to contract" || cmd == "a2c") {
+//            addCourseToContract();
+//        } else if (cmd == "clear contract" || cmd == "cc") {
+//            clearContract();
+//        } else if (cmd == "export contract" || cmd == "ex c") {
+//            exportContract();
+//        } else if (cmd == "generate contract" || cmd == "gen c") {
+//            generateContract();
+//        } else if (cmd == "type report" || cmd == "tr") {
+//            typeReport();
+//        } else if (cmd == "undo" || cmd == "u") {
+//            undoLast();
+//        } else {
+//            print_error("Invalid command.");
+//        }
+//    }
 }
 
 
@@ -73,13 +80,13 @@ void UserInterface::print_help_menu() {
 }
 
 
-void UserInterface::addCourse() {
-    std::string name, teacher, type, hours_string;
-    std::cout << "Add a course" << std::endl;
-    read_w_message(name, "Course name: ");
-    read_w_message(teacher, "Teacher's name: ");
-    read_w_message(type, "Course type: ");
-    read_w_message(hours_string, "How many hours per week will this course take: ");
+void UserInterface::addCourse(std::string name, std::string teacher, std::string type, std::string hours_string) {
+//    std::string name, teacher, type, hours_string;
+//    std::cout << "Add a course" << std::endl;
+//    read_w_message(name, "Course name: ");
+//    read_w_message(teacher, "Teacher's name: ");
+//    read_w_message(type, "Course type: ");
+//    read_w_message(hours_string, "How many hours per week will this course take: ");
 
     try {
         UserInterface::ctrl.add_course(name, teacher, type, hours_string);
@@ -151,6 +158,10 @@ void UserInterface::exit_gracefully() {
 
 void UserInterface::print_error(const char *message) {
     std::cout << message << std::endl;
+
+    auto* error = new QMessageBox;
+    error->setText(message);
+    error->show();
 }
 
 

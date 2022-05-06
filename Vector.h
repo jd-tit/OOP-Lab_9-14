@@ -147,11 +147,11 @@ public:
         // Default Destructor fine.
 
         reference       operator*()             {return (*v)[i];}
-        reference operator*()       const {return (*v)[i];}
+        const reference operator*()       const {return (*v)[i];}
         pointer         operator->()            {return &((*v)[i]);}
         const pointer   operator->()      const {return &((*v)[i]);}
         reference       operator[](int m)       {return (*v)[i + m];}
-        reference operator[](int m) const {return (*v)[i + m];}
+        const reference operator[](int m) const {return (*v)[i + m];}
 
 
         iterator& operator++()       {++i;return *this;}

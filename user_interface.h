@@ -8,39 +8,47 @@
 #include <iostream>
 #include <string>
 
-#include <QtWidgets>
-#include <QListView>
+#include <QApplication>
+#include <QMainWindow>
+#include <QWidget>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QListWidget>
+#include <QLineEdit>
+#include <QLabel>
+#include <QPushButton>
+#include <QGroupBox>
+#include <QMessageBox>
 
 #include "controller.h"
 
-class UserInterface{
+class UserInterface {
 private:
-  ContractController ctrl;
+    /**
+     * Show a message and then read from the console.
+     * @tparam T
+     * @param elem
+     * @param message
+     */
+    template<typename T>
+    static void read_w_message(T &elem, const char message[]);
 
-  /**
-   * Show a message and then read from the console.
-   * @tparam T
-   * @param elem
-   * @param message
-   */
-  template<typename T>
-  static void read_w_message(T &elem, const char message[]);
-
-  /**
-   * Print an error message to the console.
-   * @param message
-   */
-  static void print_error(const char message[]);
+    /**
+     * Print an error message to the console.
+     * @param message
+     */
+    static void print_error(const char message[]);
 
 public:
-    UserInterface() : ctrl(ContractController()) {
+    static ContractController ctrl;
+    //UserInterface() : ctrl(ContractController()) {
         ctrl.fill_repo_from_file();
     }
 
     /**
      * The main command loop
      */
-    [[noreturn]] void command_loop();
+    void command_loop();
 
     /**
      * Print the help menu
@@ -55,7 +63,7 @@ public:
     /**
      * Start dialogue to add a course.
      */
-    void addCourse();
+    static void addCourse(std::string name, std::string teacher, std::string type, std::string hours_string);
 
     /**
      * List all of the courses.
@@ -128,8 +136,79 @@ public:
     void undoLast();
 };
 
-class MainWindow : public QMainWindow {
-  QListView* course_list;
+class MainWindow : public QWidget {
+public:
+    MainWindow() {
+        this->setWindowTitle("Editor de contracte de studii");
+
+        auto *mainContainer = new QHBoxLayout;
+        auto *leftSide = new QVBoxLayout;
+        auto *rightSide = new QVBoxLayout;
+        auto *courseList = new QListWidget;
+
+        auto *nameInput = new QLineEdit;
+        auto *teacherInput = new QLineEdit;
+        auto *typeInput = new QLineEdit;
+        auto *hpwInput = new QLineEdit;
+
+        auto* idLabel = new QLabel("ID (only for retrieval):");
+        auto* nameLabel = new QLabel("Name:");
+        auto* teacherLabel = new QLabel("Teacher:");
+        auto* typeLabel = new QLabel("Type:");
+        auto* hpwLabel = new QLabel("Hours per week:");
+
+        leftSide->addWidget(courseList);
+
+        rightSide->addWidget(nameLabel);
+        rightSide->addWidget(nameInput);
+
+        rightSide->addWidget(teacherLabel);
+        rightSide->addWidget(teacherInput);
+
+        rightSide->addWidget(typeLabel);
+        rightSide->addWidget(typeInput);
+
+        rightSide->addWidget(hpwLabel);
+        rightSide->addWidget(hpwInput);
+
+
+        // RIGHT SIDE BUTTONS
+        auto* buttonBox = new QGroupBox;
+        auto* addButton = new QPushButton("Add");
+        auto* modButton = new QPushButton("Modify");
+        auto* deleteButton = new QPushButton("Delete");
+
+        auto* buttonLayout = new QHBoxLayout;
+
+        buttonLayout->addWidget(addButton);
+        buttonLayout->addWidget(modButton);
+        buttonLayout->addWidget(deleteButton);
+
+        buttonBox->setLayout(buttonLayout);
+        rightSide->addWidget(buttonBox);
+
+        mainContainer->addLayout(leftSide);
+        mainContainer->addLayout(rightSide);
+
+        this->setLayout(mainContainer);
+
+
+        // ADD BUTTON ACTIONS
+        connect(addButton, &QPushButton::clicked, this, [
+                nameInput, teacherInput, typeInput, hpwInput, courseList
+                ] () {
+            UserInterface::addCourse(nameInput->text().toStdString(), teacherInput->text().toStdString(),
+                                     typeInput->text().toStdString(), hpwInput->text().toStdString());
+
+            courseList->clear();
+            for(auto& e : UserInterface::ctrl.getAll()) {
+                auto* e_item = new QListWidgetItem;
+                e_item->setText(QString::fromStdString(e.to_str()));
+                courseList->addItem(e_item);
+            }
+        });
+
+    }
 };
 
 #endif //LAB5_CONTRACT_DE_STUDII_USER_INTERFACE_H

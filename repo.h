@@ -15,7 +15,6 @@ template<typename T>
 class Repo {
 private:
     std::string filename;
-
 protected:
     std::vector<T> contents;
 
@@ -167,12 +166,24 @@ public:
   }
 
   /**
+   * Remove the element at a certain iterator.
+   * @param index
+   */
+  void remove_at(iterator it){
+      contents.erase(it);
+  }
+
+  /**
    * Get the internal vector.
    * @return
    */
   std::vector<Course>& getVector(){
     return contents;
   }
+
+
+
+
 
 void write_to_file() {
     std::fstream output(this->filename, std::ios::out | std::ios::trunc);
