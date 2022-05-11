@@ -166,14 +166,6 @@ public:
   }
 
   /**
-   * Remove the element at a certain iterator.
-   * @param index
-   */
-  void remove_at(iterator it){
-      contents.erase(it);
-  }
-
-  /**
    * Get the internal vector.
    * @return
    */

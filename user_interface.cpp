@@ -103,9 +103,9 @@ void UserInterface::addCourse(std::string name, std::string teacher, std::string
     std::cout << "Course added successfully!\n";
 }
 
-void UserInterface::deleteCourse() {
-    std::string id_buff;
-    read_w_message(id_buff, "ID of course to delete: ");
+void UserInterface::deleteCourse(std::string id_buff) {
+//    std::string id_buff;
+//    read_w_message(id_buff, "ID of course to delete: ");
 
     try {
         ctrl.remove_course(id_buff);
@@ -117,20 +117,20 @@ void UserInterface::deleteCourse() {
     std::cout << "Course removed successfully!\n";
 }
 
-void UserInterface::modifyCourse() {
-    std::string id_buff;
-    read_w_message(id_buff, "ID of course to modify: ");
-
-    std::string name, teacher, type, hours_string;
-    std::cout << "Add a course" << std::endl;
-    read_w_message(name, "Course name: ");
-    read_w_message(teacher, "Teacher's name: ");
-    read_w_message(type, "Course type: ");
-    read_w_message(hours_string, "How many hours per week will this course take: ");
+void UserInterface::modifyCourse(Course modded) {
+//    std::string id_buff;
+//    read_w_message(id_buff, "ID of course to modify: ");
+//
+//    std::string name, teacher, type, hours_string;
+//    std::cout << "Add a course" << std::endl;
+//    read_w_message(name, "Course name: ");
+//    read_w_message(teacher, "Teacher's name: ");
+//    read_w_message(type, "Course type: ");
+//    read_w_message(hours_string, "How many hours per week will this course take: ");
 
     try {
-        Course modded(name, type, teacher, std::stoi(hours_string), std::stoi(id_buff));
-        UserInterface::ctrl.modify_course(id_buff, modded);
+//        Course modded(name, type, teacher, std::stoi(hours_string), std::stoi(id_buff));
+        UserInterface::ctrl.modify_course(std::to_string(modded.get_id()), modded);
     }
     catch (std::out_of_range &e) {
         print_error(e.what());
@@ -322,6 +322,14 @@ void UserInterface::typeReport() {
     for(const auto& it : *type_data){
         std::cout << it.first << ": " << it.second << std::endl;
     }
+}
+
+void UserInterface::typeReportGUI(const Course& crt){
+    auto type_data = ctrl.getCourseTypeData();
+
+    auto count = (*type_data)[crt.get_type()];
+    std::string message = std::to_string(count) + " other courses have type " + crt.get_type();
+    print_error(message.c_str());
 }
 
 void UserInterface::undoLast() {
