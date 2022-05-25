@@ -9,85 +9,16 @@
 #include <unordered_map>
 #include <functional>
 
-void UserInterface::command_loop() {
-    std::string cmd;
-    std::unordered_map<std::string, std::function<void()>> valid_commands;
+int UserInterface::execute() {
+    UserInterface::init();
 
-    MainWindow mainWindow;
+    MainProjectWindow mainWindow;
     mainWindow.show();
-    QApplication::exec();
-
-//    while (true) {
-//        std::cout << std::endl;
-//        print_help_menu();
-//        read_w_message(cmd, "-->");
-//
-//
-//        if (cmd == "add") {
-//            addCourse();
-//        } else if (cmd == "exit") {
-//            exit_gracefully();
-//        } else if (cmd == "list") {
-//            listAll();
-//        } else if (cmd == "rm") {
-//            deleteCourse();
-//        } else if (cmd == "mod") {
-//            modifyCourse();
-//        } else if (cmd == "find name") {
-//            findCourseByName();
-//        } else if (cmd == "filter hpw") {
-//            filterByHPW();
-//        } else if (cmd == "filter teacher") {
-//            filterByTeacher();
-//        } else if (cmd == "sorted by") {
-//            getSortedBy();
-//        } else if (cmd == "add to contract" || cmd == "a2c") {
-//            addCourseToContract();
-//        } else if (cmd == "clear contract" || cmd == "cc") {
-//            clearContract();
-//        } else if (cmd == "export contract" || cmd == "ex c") {
-//            exportContract();
-//        } else if (cmd == "generate contract" || cmd == "gen c") {
-//            generateContract();
-//        } else if (cmd == "type report" || cmd == "tr") {
-//            typeReport();
-//        } else if (cmd == "undo" || cmd == "u") {
-//            undoLast();
-//        } else {
-//            print_error("Invalid command.");
-//        }
-//    }
-}
-
-
-void UserInterface::print_help_menu() {
-    std::cout << "'exit': Exit the program.\n" <<
-              "'add':  Add a course.\n" <<
-              "'rm':   Remove a course.\n" <<
-              "'list': List all courses.\n" <<
-              "'mod':  Modify a course.\n" <<
-              "'filter hpw': Filter courses by how many hours per week they take.\n" <<
-              "'filter teacher': Filter courses by teacher.\n"
-              "'find name': Find a course by its name.\n" <<
-              "'sorted by': Get the list of courses, sorted by a given criterion.\n" <<
-              "'add to contract' or 'a2c': Add a course to the contract.\n" <<
-              "'clear contract' or 'cc': Clear all courses from the contract\n" <<
-              "'export contract' or 'ex c': Export the contract ot a file\n" <<
-              "'generate contract' or 'gen c': Generate a random contract.\n" <<
-              "'type report' or 'tr': Generate a report about the types of courses.\n" <<
-              "'undo' or 'u': Undo last add/delete/modify." <<
-              std::endl;
+    return QApplication::exec();
 }
 
 
 void UserInterface::addCourse(std::string name, std::string teacher, std::string type, std::string hours_string) {
-//    std::string name, teacher, type, hours_string;
-//    std::cout << "Add a course" << std::endl;
-//    read_w_message(name, "Course name: ");
-//    read_w_message(teacher, "Teacher's name: ");
-//    read_w_message(type, "Course type: ");
-//    read_w_message(hours_string, "How many hours per week will this course take: ");
-
     try {
         UserInterface::ctrl.add_course(name, teacher, type, hours_string);
     }
@@ -100,7 +31,7 @@ void UserInterface::addCourse(std::string name, std::string teacher, std::string
         return;
     }
 
-    std::cout << "Course added successfully!\n";
+    qDebug() << "Course added successfully!\n";
 }
 
 void UserInterface::deleteCourse(std::string id_buff) {
@@ -118,18 +49,7 @@ void UserInterface::deleteCourse(std::string id_buff) {
 }
 
 void UserInterface::modifyCourse(Course modded) {
-//    std::string id_buff;
-//    read_w_message(id_buff, "ID of course to modify: ");
-//
-//    std::string name, teacher, type, hours_string;
-//    std::cout << "Add a course" << std::endl;
-//    read_w_message(name, "Course name: ");
-//    read_w_message(teacher, "Teacher's name: ");
-//    read_w_message(type, "Course type: ");
-//    read_w_message(hours_string, "How many hours per week will this course take: ");
-
     try {
-//        Course modded(name, type, teacher, std::stoi(hours_string), std::stoi(id_buff));
         UserInterface::ctrl.modify_course(std::to_string(modded.get_id()), modded);
     }
     catch (std::out_of_range &e) {
@@ -150,7 +70,7 @@ void UserInterface::read_w_message(T &elem, const char message[]) {
 }
 
 
-void UserInterface::exit_gracefully() {
+[[maybe_unused]] void UserInterface::exit_gracefully() {
     std::cout << "Goodbye!";
     exit(EXIT_SUCCESS);
 }
@@ -161,21 +81,32 @@ void UserInterface::print_error(const char *message) {
 
     auto* error = new QMessageBox;
     error->setText(message);
+    error->setIcon(QMessageBox::Icon::Critical);
     error->show();
 }
 
+void UserInterface::print_message(const std::string message){
+    std::cout << message << std::endl;
+    auto c_message = message.c_str();
 
-void UserInterface::listAll() {
-    const auto &result = ctrl.getAll();
-    if (result.get_size() == 0) {
-        print_error("There are no courses.");
-        return;
-    }
-
-    for (const auto &e: result) {
-        std::cout << e.to_str() << std::endl;
-    }
+    auto* messageBox = new QMessageBox;
+    messageBox->setText(c_message);
+    messageBox->setIcon(QMessageBox::Icon::Information);
+    messageBox->show();
 }
+
+
+//void UserInterface::listAll() {
+//    const auto &result = ctrl.getAll();
+//    if (result.size() == 0) {
+//        print_error("There are no courses.");
+//        return;
+//    }
+//
+//    for (const auto &e: result) {
+//        std::cout << e.to_str() << std::endl;
+//    }
+//}
 
 void UserInterface::findCourseByName() {
     std::string target_name;

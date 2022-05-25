@@ -2,7 +2,6 @@
 // Created by jdt on 3/27/2022.
 //
 
-#include "Vector.h"
 #include <functional>
 #include "controller.h"
 #include "domain.h"
@@ -61,8 +60,8 @@ void ContractController::add_course(const std::string &name, const std::string &
     throw (std::invalid_argument("Error: Duplicate name."));
 }
 
-const Repo<Course> &ContractController::getAll() {
-    return i_repo;
+std::unique_ptr<std::vector<Course>> ContractController::getAll() {
+    return std::make_unique<std::vector<Course>>(i_repo.getVector());
 }
 
 void ContractController::remove_course(const std::string &id_buff) {
@@ -81,6 +80,9 @@ void ContractController::remove_course(const std::string &id_buff) {
 }
 
 void ContractController::modify_course(const std::string &id_buff, const Course& modified) {
+    //VALIDATE
+    validate_course(modified);
+
     // FIND
     auto res = i_repo.find_iterator_by_id(std::stoi(id_buff));
 
@@ -254,6 +256,10 @@ void ContractController::undo_last() {
 }
 void ContractController::fill_repo_from_file() {
     i_repo.read_from_file();
+}
+
+std::unique_ptr<std::vector<Course>> ContractController::getContract() {
+    return std::make_unique<std::vector<Course>>(contract.getVector());
 }
 
 //int pivot(std::vector<Course> &list, int l, int r,

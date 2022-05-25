@@ -4,7 +4,7 @@
 
 #include <fstream>
 
-#include "contract.h"
+#include "../include/contract.h"
 
 void Contract::clear() {
     contents.clear();

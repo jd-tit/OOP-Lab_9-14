@@ -5,7 +5,7 @@
 #include <fstream>
 
 #include <sstream>
-#include "domain.h"
+#include "../include/domain.h"
 std::string Course::to_str() const{
   std::stringstream ss;
   ss << "ID: " << id << "; Name: " << name << "; Type: " << type << "; Teacher: " << teacher << "; Hours per week: " << hours_per_week;

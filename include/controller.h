@@ -81,7 +81,7 @@ public:
      * Get const-restricted acces to the internal repository.
      * @return
      */
-    [[nodiscard]] const Repo<Course> &getAll();
+    [[nodiscard]] std::unique_ptr<std::vector<Course>> getAll();
 
 
 /**
@@ -113,8 +113,7 @@ public:
      * @param stop_buff Buffer containing the stop number.
      * @return
      */
-    std::unique_ptr<std::vector<Course>>
-    getCoursesMatchingHPW(const std::string &start_buff, const std::string &stop_buff);
+
 
 /**
  * Get all courses that have a given teacher.
@@ -159,6 +158,9 @@ public:
      */
     size_t get_number_of_courses_in_contract();
 
+    std::unique_ptr<std::vector<Course>> getContract();
+
+
     /**
      * Get a map linking course types to the number of courses of that type.
      * @return
@@ -174,6 +176,9 @@ public:
      * Get Courses from file and add them to the repo
      */
     void fill_repo_from_file();
+
+    std::unique_ptr<std::vector<Course>>
+    getCoursesMatchingHPW(const std::string &start_buff, const std::string &stop_buff);
 };
 
 #endif //LAB5_CONTRACT_DE_STUDII_CONTROLLER_H

@@ -8,6 +8,7 @@
 #include <utility>
 #include <vector>
 #include <fstream>
+#include <algorithm>
 
 #include "domain.h"
 

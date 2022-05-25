@@ -1,0 +1,1 @@
+target_include_directories(Lab9_Qt ../include)

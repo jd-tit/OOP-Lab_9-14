@@ -2,11 +2,11 @@
 // Created by jdt on 2022-03-31.
 //
 
-#include "test.h"
-#include "domain.h"
-#include "validate.h"
-#include "repo.h"
-#include "controller.h"
+#include "../include/test.h"
+#include "../include/domain.h"
+#include "../include/validate.h"
+#include "../include/repo.h"
+#include "../include/controller.h"
 #include <algorithm>
 
 #include <cassert>
@@ -114,10 +114,10 @@ void testControl(){
     Course c1{"Painting", "optional", "Bob Ross", 4, 0};
     Course c2{"Math", "optional", "Terry Tao", 8, 1};
     Course c3{"Music", "optional", "Lena Raine", 5, 2};
-    auto& repo = ctrl.getAll();
+    auto repo = ctrl.getAll();
 
-    assert(repo.get_size() == 1);
-    assert(repo.at(0).to_str() == c1.to_str());
+    assert(repo->size() == 1);
+    assert(repo->at(0).to_str() == c1.to_str());
 
     ctrl.add_course("Math", "Terry Tao", "optional", "8");
     ctrl.add_course("Music", "Lena Raine", "optional", "5");
@@ -199,10 +199,10 @@ void testControl(){
     ctrl.modify_course("2", Course{"Math", "optional", "Terry Tao",  10, 2});
 
     ctrl.remove_course("0");
-    assert(ctrl.getAll().get_size() == 3);
+    assert(ctrl.getAll()->size() == 3);
 
     ctrl.generate_contract("1");
-    auto last = ctrl.getAll().at(3);
+    auto last = ctrl.getAll()->at(3);
     assert(is_valid_string(last.get_name()));
     assert(is_valid_string(last.get_teacher()));
     assert(is_valid_string(last.get_type()));
@@ -231,7 +231,7 @@ void testControl(){
     assert(in.is_open());
     std::string line;
     std::getline(in, line);
-    assert(ctrl2.getAll().at(0).to_csv() == line);
+    assert(ctrl2.getAll()->at(0).to_csv() == line);
 
     //Type Data
 
@@ -251,12 +251,12 @@ void testUndo() {
     ctrl.add_course("Math", "Terry Tao", "mandatory", "8");
     ctrl.add_course("Music", "Lena Raine", "optional", "5");
 
-    assert(ctrl.getAll().get_size() == 2);
+    assert(ctrl.getAll()->size() == 2);
 
     ctrl.undo_last();
-    assert(ctrl.getAll().get_size() == 1);
+    assert(ctrl.getAll()->size() == 1);
 
-    Course c1{"Painting", "optional", "Bob Ross", 4, 0};
+    Course c1{"Artistic Painting", "optional", "Bob Ross", 4, 0};
     ctrl.modify_course("0", c1);
 
     ctrl.undo_last();
@@ -269,10 +269,10 @@ void testUndo() {
 
 
     ctrl.remove_course("0");
-    assert(ctrl.getAll().get_size() == 0);
+    assert(ctrl.getAll()->size() == 0);
 
     ctrl.undo_last();
-    assert(ctrl.getAll().get_size() == 1);
+    assert(ctrl.getAll()->size() == 1);
 
 }
 
